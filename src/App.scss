@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  background-image: url("https://esc-room-games.s3.us-west-1.amazonaws.com/Daffodil362/Assets/BG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -14,7 +24,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
