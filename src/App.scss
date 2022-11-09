@@ -1,6 +1,17 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'IBMVGA8';
+  src: url('./fonts/ibm_vga8.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$green: #00ff00;
+
 .App {
-  text-align: center;
-  background-image: url("https://esc-room-games.s3.us-west-1.amazonaws.com/Daffodil362/Assets/BG.jpg");
+  position: fixed;
+  background-image: url('https://esc-room-games.s3.us-west-1.amazonaws.com/Daffodil362/Assets/BG.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -8,40 +19,49 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color: green;
+  overflow: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: $green;
+  font-family: IBMVGA8, consolas, Charcoal, sans-serif;
+  white-space: nowrap;
+  font-family: monospace;
+  white-space: pre;
+  line-height: 0.9rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+p {
+  color: $green;
+  font-family: IBMVGA8, consolas, Charcoal, sans-serif;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 1.4rem;
+  white-space: pre;
+  line-height: 0.9rem;
+  padding-left: 1rem;
+}
+
+.main-input {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  padding: 0 1rem;
+  background-color: #333333;
+  color: $green;
+  font-family: IBMVGA8, consolas, Charcoal, sans-serif;
+  font-size: 1.4rem;
+  white-space: pre;
+  outline: none;
+  border: none;
+  &:focus {
+    outline: none;
+    border: none;
   }
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  &:active {
+    outline: none;
+    border: none;
   }
 }

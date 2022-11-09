@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from 'logo.svg';
+import React, { useContext } from 'react';
+import { GameContext } from 'contexts/GameContext';
+import Intro from 'views/Intro/Intro';
+import Input from 'components/MainForm';
 import 'App.scss';
 
+import type { Context } from 'types';
+
 function App() {
+  const { gameState, setGameState } = useContext(GameContext) as Context;
+
+  const handleSubmit = (inputValue: string) => {
+    setGameState({ ...gameState, playerInput: inputValue });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Intro />
+      <Input handleSubmit={handleSubmit} />
     </div>
   );
 }
