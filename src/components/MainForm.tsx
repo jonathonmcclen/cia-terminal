@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { GameContext } from 'contexts/GameContext';
+import type { Context } from 'types';
 
 interface Props {
   handleSubmit: (inputValue: string) => void;
 }
 
 const MainForm = ({ handleSubmit }: Props) => {
+  const { gameState, setGameState } = useContext(GameContext) as Context;
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const MainForm = ({ handleSubmit }: Props) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleSubmit, inputValue]);
+  }, [gameState, handleSubmit, inputValue, setGameState]);
 
   return (
     <form>
@@ -33,6 +36,7 @@ const MainForm = ({ handleSubmit }: Props) => {
         onChange={(e) => {
           setInputValue(e.target.value);
         }}
+        aria-label="response-input"
       />
     </form>
   );

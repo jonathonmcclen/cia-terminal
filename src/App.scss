@@ -21,6 +21,7 @@ $green: #00ff00;
   flex-direction: column;
   color: green;
   overflow: auto;
+  font-family: IBMVGA8, consolas, Charcoal, sans-serif;
 }
 
 h1 {
@@ -32,7 +33,7 @@ h1 {
   line-height: 0.9rem;
 }
 
-p {
+.text-line {
   color: $green;
   font-family: IBMVGA8, consolas, Charcoal, sans-serif;
   white-space: nowrap;

@@ -7,9 +7,13 @@ interface Props {
 export const GameContext = createContext({});
 
 export const GameProvider = ({ children }: Props) => {
+  const [lastInput, setLastInput] = useState('');
+  const [currentExpectedInput, setCurrentExpectedInput] = useState('login');
   const [gameState, setGameState] = useState({
     playerInput: '',
     username: '',
+    password: '',
+    correctResponse: false,
     gameStarted: false,
     gameEnded: false,
     gameWon: false,
@@ -19,11 +23,20 @@ export const GameProvider = ({ children }: Props) => {
   });
 
   useEffect(() => {
-    console.log(gameState);
-  }, [gameState]);
+    if (gameState.playerInput.toLowerCase() === currentExpectedInput) {
+      setLastInput(currentExpectedInput);
+      setGameState({
+        ...gameState,
+        gameStarted: true,
+        playerInput: '',
+      });
+    }
+  }, [currentExpectedInput, gameState]);
 
   return (
-    <GameContext.Provider value={{ gameState, setGameState }}>
+    <GameContext.Provider
+      value={{ gameState, setGameState, lastInput, setCurrentExpectedInput }}
+    >
       {children}
     </GameContext.Provider>
   );
