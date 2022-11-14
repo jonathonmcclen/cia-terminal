@@ -1,3 +1,4 @@
-export const poop = () => {
-  console.log('poop');
-};
+export const userInputPrefix = 'C:\\user\\input';
+export const outputPrefix = 'C:\\output';
+export const spacer =
+  '..........................................................';

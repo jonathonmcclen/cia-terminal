@@ -18,15 +18,15 @@ export interface Context {
   setCurrentExpectedInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface Dialog {
-  id: number;
-  dialog: {
-    expectedInput: string;
-    responses: Responses;
-  };
-}
+// export interface Dialog {
+//   id: number;
+//   dialog: {
+//     expectedInput: string[] | string;
+//     responses: Responses;
+//   };
+// }
 
-interface Responses {
-  successResponse?: string[];
-  failureResponse?: string[];
-}
+// interface Responses {
+//   successResponse?: string[];
+//   failureResponse?: string[];
+// }

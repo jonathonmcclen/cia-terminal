@@ -1,3 +1,5 @@
+import { puzzle1 } from 'puzzles/puzzle1';
+import { puzzle2 } from 'puzzles/puzzle2';
 import React, { createContext, useState, useEffect } from 'react';
 
 interface Props {
@@ -22,16 +24,29 @@ export const GameProvider = ({ children }: Props) => {
     currentPuzzleIndex: 0,
   });
 
-  useEffect(() => {
-    if (gameState.playerInput.toLowerCase() === currentExpectedInput) {
-      setLastInput(currentExpectedInput);
-      setGameState({
-        ...gameState,
-        gameStarted: true,
-        playerInput: '',
-      });
+  const timeline = [
+    {
+      id: 1,
+      puzzle: puzzle1(lastInput, gameState.username, gameState.password),
+      puzzleIndex: 0,
+    },
+    {
+      id: 2,
+      puzzle: puzzle2(lastInput),
+      puzzleIndex: 1,
     }
-  }, [currentExpectedInput, gameState]);
+  ];
+
+  // useEffect(() => {
+  //   if (gameState.playerInput.toLowerCase() === currentExpectedInput) {
+  //     setLastInput(currentExpectedInput);
+  //     setGameState({
+  //       ...gameState,
+  //       gameStarted: true,
+  //       playerInput: '',
+  //     });
+  //   }
+  // }, [currentExpectedInput, gameState]);
 
   return (
     <GameContext.Provider

@@ -5,6 +5,7 @@ import Input from 'components/MainForm';
 import 'App.scss';
 
 import type { Context } from 'types';
+import LoadingAnimation from 'components/LoadingAnimation';
 
 function App() {
   const { gameState, setGameState } = useContext(GameContext) as Context;
@@ -15,8 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <Intro />
-      <Input handleSubmit={handleSubmit} />
+      <>
+        <LoadingAnimation />
+        {gameState.currentPuzzle === 0 && <Intro />}
+        <Input handleSubmit={handleSubmit} />
+      </>
     </div>
   );
 }
