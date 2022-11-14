@@ -13,7 +13,8 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
+            // Make glitch animation
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
             `${outputPrefix} CRITICAL ERROR`,
             `${outputPrefix} ERROR 1/10`,

@@ -1,5 +1,7 @@
 import { puzzle1 } from 'puzzles/puzzle1';
 import { puzzle2 } from 'puzzles/puzzle2';
+import { puzzle3 } from 'puzzles/puzzle3';
+// import { puzzle4 } from 'puzzles/puzzle4';
 import React, { createContext, useState, useEffect } from 'react';
 
 interface Props {
@@ -11,6 +13,7 @@ export const GameContext = createContext({});
 export const GameProvider = ({ children }: Props) => {
   const [lastInput, setLastInput] = useState('');
   const [currentExpectedInput, setCurrentExpectedInput] = useState('login');
+  const [glitching, setGlitching] = useState(''); // change to 'glitch' to see glitch effect
   const [gameState, setGameState] = useState({
     playerInput: '',
     username: '',
@@ -34,7 +37,11 @@ export const GameProvider = ({ children }: Props) => {
       id: 2,
       puzzle: puzzle2(lastInput),
       puzzleIndex: 1,
-    }
+    },
+    {
+      id: 3,
+      puzzle: puzzle3(lastInput),
+    },
   ];
 
   // useEffect(() => {
@@ -50,7 +57,13 @@ export const GameProvider = ({ children }: Props) => {
 
   return (
     <GameContext.Provider
-      value={{ gameState, setGameState, lastInput, setCurrentExpectedInput }}
+      value={{
+        gameState,
+        setGameState,
+        lastInput,
+        setCurrentExpectedInput,
+        glitching,
+      }}
     >
       {children}
     </GameContext.Provider>

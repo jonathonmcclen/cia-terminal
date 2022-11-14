@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
+import type { Context } from 'types';
 import Intro from 'views/Intro/Intro';
 import Input from 'components/MainForm';
 import 'App.scss';
 
-import type { Context } from 'types';
-import LoadingAnimation from 'components/LoadingAnimation';
-
 function App() {
-  const { gameState, setGameState } = useContext(GameContext) as Context;
+  const { gameState, setGameState, glitching } = useContext(GameContext) as Context;
 
   const handleSubmit = (inputValue: string) => {
     setGameState({ ...gameState, playerInput: inputValue });
@@ -16,11 +14,10 @@ function App() {
 
   return (
     <div className="App">
-      <>
-        <LoadingAnimation />
+      <div className={`game ${glitching}`}>
         {gameState.currentPuzzle === 0 && <Intro />}
         <Input handleSubmit={handleSubmit} />
-      </>
+      </div>
     </div>
   );
 }

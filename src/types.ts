@@ -16,6 +16,7 @@ export interface Context {
   setGameState: React.Dispatch<React.SetStateAction<ContextStructure>>;
   lastInput?: string;
   setCurrentExpectedInput: React.Dispatch<React.SetStateAction<string>>;
+  glitching: boolean;
 }
 
 // export interface Dialog {

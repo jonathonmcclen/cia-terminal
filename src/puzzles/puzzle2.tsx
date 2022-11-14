@@ -11,7 +11,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             <a
               href="https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government"
               target="_blank"
@@ -31,7 +31,7 @@ export const puzzle2 = (lastInput: string) => {
           jokeResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} Wait...`,
             `${outputPrefix} This is the EXAMPLE`,
             `${outputPrefix} VERY FUNNY, Mr. Funny Guy`,
@@ -50,7 +50,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -90,7 +90,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Authentication Code: 3512076170`,
@@ -117,7 +117,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 19.087.125`,
@@ -145,7 +145,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 82.607.459`,
@@ -182,7 +182,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 62.746.271`,
@@ -219,7 +219,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} DECRYPTED URL:`,
@@ -255,7 +255,7 @@ export const puzzle2 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
 

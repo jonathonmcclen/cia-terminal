@@ -11,7 +11,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -45,7 +45,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -79,7 +79,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -113,7 +113,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -147,7 +147,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -181,7 +181,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} FileLok Code: 6597`,
@@ -211,7 +211,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -245,7 +245,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -279,7 +279,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -313,7 +313,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -347,7 +347,7 @@ export const puzzle3 = (lastInput: string) => {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            LoadingAnimation(),
+            <LoadingAnimation />,
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
             `${outputPrefix} CRITICAL ERROR`,
             `${outputPrefix} ERROR 1/10`,
