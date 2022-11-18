@@ -1,6 +1,7 @@
 import { puzzle1 } from 'puzzles/puzzle1';
 import { puzzle2 } from 'puzzles/puzzle2';
 import { puzzle3 } from 'puzzles/puzzle3';
+import { puzzle4 } from 'puzzles/puzzle4';
 // import { puzzle4 } from 'puzzles/puzzle4';
 import React, { createContext, useState, useEffect } from 'react';
 
@@ -41,6 +42,10 @@ export const GameProvider = ({ children }: Props) => {
     {
       id: 3,
       puzzle: puzzle3(lastInput),
+    },
+    {
+      id: 4,
+      puzzle: puzzle4(lastInput, setGlitching),
     },
   ];
 

@@ -7,6 +7,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 1,
       dialog: {
         expectedInput: 'https://675849-01928-565650-57039',
+        hint: "112",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -46,6 +47,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 2,
       dialog: {
         expectedInput: 'https://57203-23423-76039-67239',
+        hint: "113",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -86,6 +88,7 @@ export const puzzle2 = (lastInput: string) => {
       dialog: {
         expectedInput:
           'https://s3.us-west-1.amazonaws.com/15.908.75-f8065564/AlabasterTerminal/gamev2.0.html',
+        hint: "114",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -113,6 +116,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 4,
       dialog: {
         expectedInput: 'https://12406-13796-93659-37402',
+        hint: "115",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -141,6 +145,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 5,
       dialog: {
         expectedInput: 'https://40353-36520-23634-27560',
+        hint: "116",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -178,6 +183,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 6,
       dialog: {
         expectedInput: 'https://66737-26553-26594-46592',
+        hint: "117",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -215,6 +221,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 7,
       dialog: {
         expectedInput: 'https://20693-10782-40621-12479',
+        hint: "118",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -251,6 +258,7 @@ export const puzzle2 = (lastInput: string) => {
       id: 8,
       dialog: {
         expectedInput: 'https://twitter.com/Anonymo00841943',
+        hint: "119",
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,

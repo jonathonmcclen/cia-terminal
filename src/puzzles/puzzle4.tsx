@@ -1,8 +1,9 @@
 import LoadingAnimation from 'components/LoadingAnimation';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
-export const puzzle3 = (
+export const puzzle4 = (
   lastInput: string,
+  setGlitching: (glitching: string) => void,
 ) => {
   return [
     {
@@ -14,9 +15,10 @@ export const puzzle3 = (
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
-            // Make glitch animation
+            setGlitching('glitch'),
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
             `${outputPrefix} CRITICAL ERROR`,
+            setGlitching(''),
             `${outputPrefix} ERROR 1/10`,
             `${outputPrefix} COMPLETE THE SEQUENCE:`,
             `${outputPrefix} 253 Yellow 40, 0253 Yellow 4, 40253 Yellow, _ _ _ _ _ _`,
@@ -35,5 +37,15 @@ export const puzzle3 = (
         },
       },
     },
+    // {
+    //   id: 2,
+    //   dialog: {
+    //     expectedInput: '840253',
+    //     responses: {
+    //       successResponse: [
+    //         `${userInputPrefix} '${lastInput}'`,
+    //         `${outputPrefix} Decrypting...`,
+
+    // }
   ];
 };

@@ -4,14 +4,9 @@ export interface IntroData {
   delay: number;
 }
 
+const thisYear = new Date().getFullYear();
+
 export const introData: IntroData[] = [
-  //   ..........................................................
-  // Microsoft Windows [Version 10.0.18363.720]
-  // (c) 2019 Microsoft Corporation. All rights reserved.
-  // ..........................................................
-  // C: Output > TYPE A COMMAND AND PRESS ENTER
-  // C: Output > **EXAMPLE** Login
-  // ..........................................................
   {
     line: '.........................................................',
     label: '',
@@ -23,8 +18,8 @@ export const introData: IntroData[] = [
     delay: 0,
   },
   {
-    line: '(c) 2019 Microsoft Corporation. All rights reserved.',
-    label: '(c) 2019 Microsoft Corporation. All rights reserved.',
+    line: `(c) ${thisYear} Microsoft Corporation. All rights reserved.`,
+    label: `(c) ${thisYear} Microsoft Corporation. All rights reserved.`,
     delay: 0,
   },
   {

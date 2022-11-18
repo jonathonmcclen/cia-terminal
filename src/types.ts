@@ -17,6 +17,7 @@ export interface Context {
   lastInput?: string;
   setCurrentExpectedInput: React.Dispatch<React.SetStateAction<string>>;
   glitching: boolean;
+  setGlitching: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // export interface Dialog {
