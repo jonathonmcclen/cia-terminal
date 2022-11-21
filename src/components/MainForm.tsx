@@ -26,6 +26,14 @@ const MainForm = ({ handleSubmit }: Props) => {
     };
   }, [gameState, handleSubmit, inputValue, setGameState]);
 
+  useEffect(() => {
+    const audio = new Audio(
+      'https://cia-9d562a98.s3.us-west-1.amazonaws.com/GameAssets/SoundFX/Daffodil362KeyPress.wav'
+    );
+    audio.volume = 0.6;
+    audio.play();
+  }, [inputValue]);
+
   return (
     <form>
       <input

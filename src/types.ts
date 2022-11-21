@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface ContextStructure {
   playerInput: string;
   username: string;
@@ -14,21 +16,21 @@ export interface ContextStructure {
 export interface Context {
   gameState: ContextStructure;
   setGameState: React.Dispatch<React.SetStateAction<ContextStructure>>;
-  lastInput?: string;
-  setCurrentExpectedInput: React.Dispatch<React.SetStateAction<string>>;
   glitching: boolean;
-  setGlitching: React.Dispatch<React.SetStateAction<boolean>>;
+  setGlitching: React.Dispatch<React.SetStateAction<string>>;
 }
 
-// export interface Dialog {
-//   id: number;
-//   dialog: {
-//     expectedInput: string[] | string;
-//     responses: Responses;
-//   };
-// }
+export interface Dialog {
+  id: number;
+  dialog: {
+    expectedInput: string;
+    hint: string;
+    responses: {
+      successResponse?: Success;
+      failureResponse?: Fail;
+    };
+  };
+}
 
-// interface Responses {
-//   successResponse?: string[];
-//   failureResponse?: string[];
-// }
+type Success = (void | Element | ReactNode | (() => Promise<void>))[];
+type Fail = (void | Element | ReactNode | (() => Promise<void>))[];

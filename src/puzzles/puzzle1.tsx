@@ -1,9 +1,13 @@
+import { Dialog } from 'types';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle1 = (
   lastInput: string,
   username: string,
-  password: string
+  password: string,
+  failSound: HTMLAudioElement,
+  successSound: HTMLAudioElement,
+  readyForInput: HTMLAudioElement
 ) => {
   return [
     {
@@ -16,11 +20,13 @@ export const puzzle1 = (
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             `${outputPrefix} Please enter your username.`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Command Submission '${lastInput}' not recognized`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -35,12 +41,14 @@ export const puzzle1 = (
             `${outputPrefix} Username '${lastInput}' recognized`,
             `${outputPrefix} Please enter your password.`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Username '${lastInput}' not recognized`,
             `${outputPrefix} Please enter a valid username.`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -51,6 +59,7 @@ export const puzzle1 = (
         expectedInput: password,
         responses: {
           successResponse: [
+            () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Command Entry Recognized`,
             `${outputPrefix} FAILED`,
@@ -63,6 +72,7 @@ export const puzzle1 = (
             `${outputPrefix} 287601, 876012, 760128, _ _ _ _ _ _`,
             `${outputPrefix} Complete The Sequence Then Press ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -71,9 +81,10 @@ export const puzzle1 = (
       id: 4,
       dialog: {
         expectedInput: '601287',
-        hint: "102",
+        hint: '102',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -82,10 +93,13 @@ export const puzzle1 = (
             `${outputPrefix} 431842, 243184, 424318, _ _ _ _ _ _`,
             `${outputPrefix} Complete The Sequence Then Press ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -94,9 +108,10 @@ export const puzzle1 = (
       id: 5,
       dialog: {
         expectedInput: '842431',
-        hint: "103",
+        hint: '103',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -111,10 +126,13 @@ export const puzzle1 = (
             `${outputPrefix} 4. InputFour(4)**REFERENCEE#…1…END`,
             `${outputPrefix} TYPE REFERENCE NUMBERS IN ORDER THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -123,9 +141,10 @@ export const puzzle1 = (
       id: 6,
       dialog: {
         expectedInput: '976142',
-        hint: "104",
+        hint: '104',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -139,10 +158,13 @@ export const puzzle1 = (
             `${outputPrefix} 2. InputTwo(2)**REFERENCE#…5…END`,
             `${outputPrefix} TYPE REFERENCE NUMBERS IN ORDER THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -151,9 +173,10 @@ export const puzzle1 = (
       id: 7,
       dialog: {
         expectedInput: '452863',
-        hint: "105",
+        hint: '105',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -167,10 +190,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#6>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>__REFERENCE#_6___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFRENCE NUMBERS THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -179,9 +205,10 @@ export const puzzle1 = (
       id: 8,
       dialog: {
         expectedInput: '203896',
-        hint: "106",
+        hint: '106',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -195,10 +222,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#1>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>__REFERENCE#_0___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFRENCE NUMBERS THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -207,9 +237,10 @@ export const puzzle1 = (
       id: 9,
       dialog: {
         expectedInput: '018649',
-        hint: "107",
+        hint: '107',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -223,10 +254,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#6>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_6___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -235,9 +269,10 @@ export const puzzle1 = (
       id: 10,
       dialog: {
         expectedInput: '502836',
-        hint: "108",
+        hint: '108',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -251,10 +286,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#6>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_5___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -263,9 +301,10 @@ export const puzzle1 = (
       id: 11,
       dialog: {
         expectedInput: '163955',
-        hint: "109",
+        hint: '109',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -279,10 +318,13 @@ export const puzzle1 = (
             `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REREFERENCE#_5___<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#1`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -291,9 +333,10 @@ export const puzzle1 = (
       id: 12,
       dialog: {
         expectedInput: '590864',
-        hint: "110",
+        hint: '110',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -311,10 +354,13 @@ export const puzzle1 = (
             `${outputPrefix} Multiply by 2 Again`,
             `${outputPrefix} Add 7`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
@@ -323,9 +369,10 @@ export const puzzle1 = (
       id: 13,
       dialog: {
         expectedInput: '483327',
-        hint: "111",
+        hint: '111',
         responses: {
           successResponse: [
+            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
@@ -340,13 +387,16 @@ export const puzzle1 = (
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECYRYPT:`,
             spacer,
+            () => readyForInput.play()
           ],
           failureResponse: [
+            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
+            () => readyForInput.play()
           ],
         },
       },
     },
-  ];
+  ] as Dialog[];
 };

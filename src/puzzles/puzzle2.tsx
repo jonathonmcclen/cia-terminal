@@ -1,18 +1,24 @@
 import LoadingAnimation from 'components/LoadingAnimation';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
-export const puzzle2 = (lastInput: string) => {
+export const puzzle2 = (
+  lastInput: string,
+  failSound: HTMLAudioElement,
+  successSound: HTMLAudioElement,
+  readyForInput: HTMLAudioElement
+) => {
   return [
     {
       id: 1,
       dialog: {
         expectedInput: 'https://675849-01928-565650-57039',
-        hint: "112",
+        hint: '112',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             <a
               href="https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government"
               target="_blank"
@@ -20,14 +26,17 @@ export const puzzle2 = (lastInput: string) => {
             >
               https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government
             </a>,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECYRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           jokeResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -39,6 +48,7 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER "A REAL" URL TO HACK OR DECRYPT`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -47,12 +57,13 @@ export const puzzle2 = (lastInput: string) => {
       id: 2,
       dialog: {
         expectedInput: 'https://57203-23423-76039-67239',
-        hint: "113",
+        hint: '113',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
@@ -71,14 +82,17 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -88,26 +102,30 @@ export const puzzle2 = (lastInput: string) => {
       dialog: {
         expectedInput:
           'https://s3.us-west-1.amazonaws.com/15.908.75-f8065564/AlabasterTerminal/gamev2.0.html',
-        hint: "114",
+        hint: '114',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Authentication Code: 3512076170`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECYRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -116,12 +134,13 @@ export const puzzle2 = (lastInput: string) => {
       id: 4,
       dialog: {
         expectedInput: 'https://12406-13796-93659-37402',
-        hint: "115",
+        hint: '115',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 19.087.125`,
@@ -129,14 +148,17 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -145,12 +167,13 @@ export const puzzle2 = (lastInput: string) => {
       id: 5,
       dialog: {
         expectedInput: 'https://40353-36520-23634-27560',
-        hint: "116",
+        hint: '116',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 82.607.459`,
@@ -167,14 +190,17 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -183,12 +209,13 @@ export const puzzle2 = (lastInput: string) => {
       id: 6,
       dialog: {
         expectedInput: 'https://66737-26553-26594-46592',
-        hint: "117",
+        hint: '117',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 62.746.271`,
@@ -205,14 +232,17 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -221,12 +251,13 @@ export const puzzle2 = (lastInput: string) => {
       id: 7,
       dialog: {
         expectedInput: 'https://20693-10782-40621-12479',
-        hint: "118",
+        hint: '118',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} DECRYPTED URL:`,
@@ -242,14 +273,17 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
@@ -258,12 +292,13 @@ export const puzzle2 = (lastInput: string) => {
       id: 8,
       dialog: {
         expectedInput: 'https://twitter.com/Anonymo00841943',
-        hint: "119",
+        hint: '119',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
             <LoadingAnimation />,
+            () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
 
@@ -289,14 +324,17 @@ export const puzzle2 = (lastInput: string) => {
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
           failureResponse: [
+            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
+            () => readyForInput.play(),
           ],
         },
       },
