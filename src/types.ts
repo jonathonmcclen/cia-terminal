@@ -1,16 +1,17 @@
 import { ReactNode } from 'react';
 
 export interface ContextStructure {
+  currentExpectedInput: string;
+  lastInput: string;
   playerInput: string;
   username: string;
   password: string;
-  correctResponse: boolean;
   gameStarted: boolean;
   gameEnded: boolean;
-  gameWon: boolean;
-  gameLost: boolean;
   currentPuzzle: number;
   currentPuzzleIndex: number;
+  musicPlaying: boolean;
+  currentMusic: any;
 }
 
 export interface Context {
@@ -18,6 +19,7 @@ export interface Context {
   setGameState: React.Dispatch<React.SetStateAction<ContextStructure>>;
   glitching: boolean;
   setGlitching: React.Dispatch<React.SetStateAction<string>>;
+  game: ReactNode[];
 }
 
 export interface Dialog {
