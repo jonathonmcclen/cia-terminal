@@ -3,7 +3,7 @@ import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle3 = (
   lastInput: string,
-  setGlitching: (glitching: string) => void,
+  setGlitching: (glitching: boolean) => void,
   failSound: HTMLAudioElement,
   successSound: HTMLAudioElement,
   readyForInput: HTMLAudioElement
@@ -405,10 +405,10 @@ export const puzzle3 = (
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
             () => successSound.play(),
-            setGlitching('glitch'),
+            setGlitching(true),
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
             `${outputPrefix} CRITICAL ERROR`,
-            setGlitching(''),
+            setGlitching(false),
             `${outputPrefix} ERROR 1/10`,
             `${outputPrefix} COMPLETE THE SEQUENCE:`,
             `${outputPrefix} 253 Yellow 40, 0253 Yellow 4, 40253 Yellow, _ _ _ _ _ _`,

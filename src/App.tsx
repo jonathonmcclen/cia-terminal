@@ -12,14 +12,25 @@ function App() {
   ) as Context;
 
   const handleSubmit = (inputValue: string) => {
-    setGameState({ ...gameState, playerInput: inputValue, lastInput: inputValue });
+    setGameState({
+      ...gameState,
+      playerInput: inputValue,
+      lastInput: inputValue,
+    });
+    console.log(game)
   };
 
   return (
     <div className="App">
-      <div className={`game ${glitching}`}>
+      <div className={glitching ? 'game glitch' : 'game'}>
         <>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: '75px',
+            }}
+          >
             {game && game.map((view, index) => <div key={index}>{view}</div>)}
           </div>
           <Input handleSubmit={handleSubmit} />
