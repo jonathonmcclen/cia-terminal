@@ -7,7 +7,8 @@ export const puzzle1 = (
   password: string,
   failSound: HTMLAudioElement,
   successSound: HTMLAudioElement,
-  readyForInput: HTMLAudioElement
+  readyForInput: HTMLAudioElement,
+  setGlitching: (glitching: boolean) => void
 ) => {
   return [
     {
@@ -23,10 +24,7 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            `${userInputPrefix} '${lastInput}'`,
-            `${outputPrefix} Command Submission '${lastInput}' not recognized`,
-            spacer,
-            () => readyForInput.play(),
+            () => failSound.play(),
           ],
         },
       },
@@ -34,21 +32,21 @@ export const puzzle1 = (
     {
       id: 2,
       dialog: {
-        expectedInput: username,
+        expectedInput: 'username',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Username '${lastInput}' recognized`,
             `${outputPrefix} Please enter your password.`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Username '${lastInput}' not recognized`,
             `${outputPrefix} Please enter a valid username.`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -56,12 +54,14 @@ export const puzzle1 = (
     {
       id: 3,
       dialog: {
-        expectedInput: password,
+        expectedInput: 'password',
         responses: {
           successResponse: [
+            setGlitching(true),
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Command Entry Recognized`,
+            setGlitching(false),
             `${outputPrefix} FAILED`,
             spacer,
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
@@ -72,7 +72,7 @@ export const puzzle1 = (
             `${outputPrefix} 287601, 876012, 760128, _ _ _ _ _ _`,
             `${outputPrefix} Complete The Sequence Then Press ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -93,13 +93,13 @@ export const puzzle1 = (
             `${outputPrefix} 431842, 243184, 424318, _ _ _ _ _ _`,
             `${outputPrefix} Complete The Sequence Then Press ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -126,13 +126,13 @@ export const puzzle1 = (
             `${outputPrefix} 4. InputFour(4)**REFERENCEE#…1…END`,
             `${outputPrefix} TYPE REFERENCE NUMBERS IN ORDER THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -158,13 +158,13 @@ export const puzzle1 = (
             `${outputPrefix} 2. InputTwo(2)**REFERENCE#…5…END`,
             `${outputPrefix} TYPE REFERENCE NUMBERS IN ORDER THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -190,13 +190,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#6>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>__REFERENCE#_6___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFRENCE NUMBERS THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -222,13 +222,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#1>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>__REFERENCE#_0___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFRENCE NUMBERS THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -254,13 +254,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#6>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_6___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -286,13 +286,13 @@ export const puzzle1 = (
             `${outputPrefix} LogLine#6>>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_5___`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -318,13 +318,13 @@ export const puzzle1 = (
             `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REREFERENCE#_5___<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#1`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -354,13 +354,13 @@ export const puzzle1 = (
             `${outputPrefix} Multiply by 2 Again`,
             `${outputPrefix} Add 7`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },
@@ -387,13 +387,13 @@ export const puzzle1 = (
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECYRYPT:`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
           failureResponse: [
             () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
             spacer,
-            () => readyForInput.play()
+            () => readyForInput.play(),
           ],
         },
       },

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import 'App.scss';
 
 import { GameContext } from 'contexts/GameContext';
@@ -17,8 +17,15 @@ function App() {
       playerInput: inputValue,
       lastInput: inputValue,
     });
-    console.log(game)
+    console.log(game);
   };
+
+  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({behavior: 'smooth'});
+  }, [game])
+
 
   return (
     <div className="App">
@@ -28,10 +35,11 @@ function App() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              marginBottom: '75px',
+              marginBottom: '5rem',
             }}
           >
             {game && game.map((view, index) => <div key={index}>{view}</div>)}
+            <div ref={messagesEndRef} />
           </div>
           <Input handleSubmit={handleSubmit} />
         </>

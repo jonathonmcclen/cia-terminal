@@ -34,5 +34,5 @@ export interface Dialog {
   };
 }
 
-type Success = (void | Element | ReactNode | (() => Promise<void>))[];
-type Fail = (void | Element | ReactNode | (() => Promise<void>))[];
+export type Success = (void | Element | ReactNode | (() => Promise<void>))[];
+export type Fail = (void | Element | ReactNode | (() => Promise<void>))[];
