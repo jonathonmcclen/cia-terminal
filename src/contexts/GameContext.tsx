@@ -152,16 +152,16 @@ export const GameProvider: React.FC<Props> = ({ children }) => {
         currentExpectedInput:
           timeline[prev.currentPuzzle].puzzle[prev.currentPuzzleIndex + 1]
             .dialog.expectedInput,
-            playerInput: ''
+            // playerInput: ''
       }));
     }
 
     if (gameState.playerInput !== gameState.currentExpectedInput) {
       if (failureResponse) {
-        setGameState((prev) => ({
-          ...prev,
-          playerInput: '',
-        }));
+        // setGameState((prev) => ({
+        //   ...prev,
+        //   playerInput: '',
+        // }));
         setGame([...game, failureResponse]);
       }
     }
