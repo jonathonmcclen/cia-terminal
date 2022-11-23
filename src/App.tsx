@@ -23,9 +23,8 @@ function App() {
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({behavior: 'smooth'});
-  }, [game])
-
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [game]);
 
   return (
     <div className="App">
@@ -36,7 +35,7 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               marginBottom: '5rem',
-              paddingLeft: '2rem'
+              paddingLeft: '2rem',
             }}
           >
             {game && game.map((view, index) => <div key={index}>{view}</div>)}
