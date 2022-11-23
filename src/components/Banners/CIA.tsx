@@ -63,7 +63,7 @@ const bannerTxt = [
 
 const CIA = () => {
   return (
-    <div className="banner" aria-label="CIA">
+    <div aria-label="CIA">
       {bannerTxt.map((data, index) => (
         <h1 key={index} aria-hidden="true">
           {data.line}

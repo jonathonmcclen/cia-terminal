@@ -7,7 +7,7 @@
   font-style: normal;
 }
 
-$green: #00ff00;
+$green: #008000;
 
 .App {
   position: fixed;
@@ -19,7 +19,7 @@ $green: #00ff00;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  color: green;
+  color: $green;
   overflow: auto;
   font-family: IBMVGA8, consolas, Charcoal, sans-serif;
 }
@@ -38,11 +38,9 @@ h1 {
   color: $green;
   font-family: IBMVGA8, consolas, Charcoal, sans-serif;
   white-space: nowrap;
-  font-family: monospace;
   font-size: 1.4rem;
   white-space: pre;
   line-height: 0.9rem;
-  padding-left: 1rem;
 }
 
 .main-input {

@@ -113,7 +113,7 @@ export const GameProvider: React.FC<Props> = ({ children }) => {
     const successResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.successResponse?.map((resp, i) => {
-      if (typeof resp === 'string') return <div key={i}>{resp}</div>;
+      if (typeof resp === 'string') return <div key={i} style={{fontSize: '1.5rem'}}>{resp}</div>;
       if (typeof resp === 'function') resp();
       return null;
     });
@@ -121,7 +121,7 @@ export const GameProvider: React.FC<Props> = ({ children }) => {
     const failureResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.failureResponse?.map((resp, i) => {
-      if (typeof resp === 'string') return <div key={i}>{resp}</div>;
+      if (typeof resp === 'string') return <div key={i} style={{fontSize: '1.5rem'}}>{resp}</div>;
       if (typeof resp === 'function') resp();
       return null;
     });
@@ -141,7 +141,8 @@ export const GameProvider: React.FC<Props> = ({ children }) => {
 
     if (
       gameState.gameStarted &&
-      gameState.playerInput === gameState.currentExpectedInput
+      gameState.playerInput === gameState.currentExpectedInput &&
+      gameState.playerInput !== 'music'
     ) {
       if (successResponse) {
         setGame([...game, successResponse]);
@@ -152,7 +153,7 @@ export const GameProvider: React.FC<Props> = ({ children }) => {
         currentExpectedInput:
           timeline[prev.currentPuzzle].puzzle[prev.currentPuzzleIndex + 1]
             .dialog.expectedInput,
-            // playerInput: ''
+        // playerInput: ''
       }));
     }
 

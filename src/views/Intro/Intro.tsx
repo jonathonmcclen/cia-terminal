@@ -3,6 +3,7 @@ import { GameContext } from 'contexts/GameContext';
 import type { Context } from 'types';
 import { introData } from './introData';
 import CIA from 'components/Banners/CIA';
+import 'App.scss'
 // import Puzzle1 from 'puzzles/puzzle1';
 
 const Intro = () => {

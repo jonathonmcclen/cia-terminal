@@ -36,6 +36,7 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               marginBottom: '5rem',
+              paddingLeft: '2rem'
             }}
           >
             {game && game.map((view, index) => <div key={index}>{view}</div>)}
