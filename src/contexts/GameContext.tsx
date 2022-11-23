@@ -19,12 +19,26 @@ interface Props {
   children: React.ReactNode;
 }
 
+interface GameStateObject {
+  currentExpectedInput: string;
+  lastInput: string;
+  playerInput: string;
+  username: string;
+  password: string;
+  gameStarted: boolean;
+  gameEnded: boolean;
+  currentPuzzle: number;
+  currentPuzzleIndex: number;
+  musicPlaying: boolean;
+  currentMusic: HTMLAudioElement;
+}
+
 export const GameContext = createContext({});
 
-export const GameProvider = ({ children }: Props) => {
+export const GameProvider: React.FC<Props> = ({ children }) => {
   const [game, setGame] = useState([<Intro />]);
-  const [glitching, setGlitching] = useState(''); // change to 'glitch' to see glitch effect
-  const [gameState, setGameState] = useState({
+  const [glitching, setGlitching] = useState(false); // change to 'glitch' to see glitch effect
+  const [gameState, setGameState] = useState<GameStateObject>({
     currentExpectedInput: 'login',
     lastInput: '',
     playerInput: '',
@@ -92,92 +106,27 @@ export const GameProvider = ({ children }: Props) => {
 
   useEffect(() => {
     console.log(gameState);
-  }, [gameState]);
 
-  useEffect(() => {
-    const nextPuzzleCheck = () => {
-      if (
-        gameState.currentPuzzleIndex ===
-        timeline[gameState.currentPuzzle].puzzle.length
-      ) {
-        setGameState({
-          ...gameState,
-          currentPuzzle: gameState.currentPuzzle + 1,
-        });
+    const response = timeline[gameState.currentPuzzle].puzzle[
+      gameState.currentPuzzleIndex
+    ].dialog.responses.successResponse?.map((resp, index) => {
+      if (typeof resp === 'string') {
+        return <div key={index}>{resp}</div>;
       }
-      if (gameState.currentPuzzle === timeline.length) {
-        setGameState({ ...gameState, gameEnded: true });
-      }
-      if (gameState.gameEnded) {
-        setGame([<EndGame />]);
-      }
-    };
 
-    console.log('from beginning of useEffect');
+      if (typeof resp === 'function') {
+        resp();
+      }
+
+      return null;
+    });
+
     // if playerInput === currentExpectedInput, add timeline[currentPuzzle].puzzle[currentPuzzleIndex].dialog.response.successResponse to game
     // if playerInput !== currentExpectedInput, add timeline[currentPuzzle].puzzle[currentPuzzleIndex].dialog.response.failResponse to game and do not progress the game
     // then set currentPuzzleIndex to currentPuzzleIndex + 1
     // if currentPuzzleIndex === timeline[currentPuzzle].puzzle.length, set currentPuzzle to currentPuzzle + 1
     // if currentPuzzle === timeline.length, set gameEnded to true
     // if gameEnded, set game to [<EndGame />]
-
-    if (gameState.playerInput.toLowerCase() === 'login') {
-      console.log('from login');
-      setGameState({
-        ...gameState,
-        gameStarted: true,
-        // playerInput: '',
-      });
-    }
-
-    if (gameState.gameStarted) {
-      console.log('from gameStarted');
-      if (!gameState.musicPlaying) {
-        (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
-        setGameState({ ...gameState, musicPlaying: true });
-      }
-
-      // * NOTE: We are never passing this check for some reason
-      console.log('from gameStarted, before input check');
-      if (
-        gameState.playerInput.toLowerCase() ===
-        gameState.currentExpectedInput.toLowerCase()
-      ) {
-        console.log('from input check');
-        setGame([
-          ...game,
-          <div>
-            {timeline[gameState.currentPuzzle].puzzle[
-              gameState.currentPuzzleIndex
-            ].dialog.responses.successResponse?.map((response, index) => (
-              <div key={index}>{response}</div>
-            ))}
-          </div>,
-        ]);
-
-        nextPuzzleCheck();
-
-        setGameState({
-          ...gameState,
-          currentPuzzleIndex: gameState.currentPuzzleIndex + 1,
-          currentExpectedInput:
-            timeline[gameState.currentPuzzle].puzzle[
-              gameState.currentPuzzleIndex
-            ].dialog.expectedInput,
-        });
-      } else {
-        setGame([
-          ...game,
-          <div>
-            {timeline[gameState.currentPuzzle].puzzle[
-              gameState.currentPuzzleIndex
-            ].dialog.responses.failureResponse?.map((response, index) => (
-              <div key={index}>{response}</div>
-            ))}
-          </div>,
-        ]);
-      }
-    }
 
     if (gameState.playerInput.toLowerCase() === 'music') {
       setGameState({
@@ -196,19 +145,8 @@ export const GameProvider = ({ children }: Props) => {
         currentMusic: intenseMusic,
       });
     }
-    // console.log(
-    //   'puzzle',
-    //   gameState.currentPuzzle,
-    //   'index',
-    //   gameState.currentPuzzleIndex,
-    //   'last input',
-    //   gameState.lastInput,
-    //   'current input',
-    //   gameState.playerInput,
-    //   'correct response',
-    //   gameState.currentExpectedInput
-    // );
-  }, [gameState, timeline]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameState.playerInput]);
 
   return (
     <GameContext.Provider

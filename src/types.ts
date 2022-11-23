@@ -18,7 +18,7 @@ export interface Context {
   gameState: ContextStructure;
   setGameState: React.Dispatch<React.SetStateAction<ContextStructure>>;
   glitching: boolean;
-  setGlitching: React.Dispatch<React.SetStateAction<string>>;
+  setGlitching: React.Dispatch<React.SetStateAction<boolean>>;
   game: ReactNode[];
 }
 
