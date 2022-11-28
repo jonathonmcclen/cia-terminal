@@ -2,10 +2,10 @@ import LoadingAnimation from 'components/LoadingAnimation';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle2 = (
-  lastInput: string,
-  failSound: HTMLAudioElement,
-  successSound: HTMLAudioElement,
-  readyForInput: HTMLAudioElement
+  lastInput,
+  failSound,
+  successSound,
+  readyForInput
 ) => {
   return [
     {

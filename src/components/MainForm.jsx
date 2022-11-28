@@ -1,17 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
-import type { Context } from 'types';
 
-interface Props {
-  handleSubmit: (inputValue: string) => void;
-}
-
-const MainForm = ({ handleSubmit }: Props) => {
-  const { gameState, setGameState } = useContext(GameContext) as Context;
+const MainForm = ({ handleSubmit }) => {
+  const { gameState, setGameState } = useContext(GameContext);
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
         handleSubmit(inputValue);

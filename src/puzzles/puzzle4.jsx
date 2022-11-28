@@ -1,11 +1,11 @@
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle4 = (
-  lastInput: string,
-  setGlitching: (glitching: boolean) => void,
-  failSound: HTMLAudioElement,
-  successSound: HTMLAudioElement,
-  readyForInput: HTMLAudioElement
+  lastInput,
+  setGlitching,
+  failSound,
+  successSound,
+  readyForInput
 ) => {
   return [
     {

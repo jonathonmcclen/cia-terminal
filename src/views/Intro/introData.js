@@ -1,12 +1,6 @@
-export interface IntroData {
-  line: string;
-  label: string;
-  delay: number;
-}
-
 const thisYear = new Date().getFullYear();
 
-export const introData: IntroData[] = [
+export const introData = [
   {
     line: '.........................................................',
     label: '',

@@ -1,14 +1,13 @@
-import { Dialog } from 'types';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle1 = (
-  lastInput: string,
-  username: string,
-  password: string,
-  failSound: HTMLAudioElement,
-  successSound: HTMLAudioElement,
-  readyForInput: HTMLAudioElement,
-  setGlitching: (glitching: boolean) => void
+  lastInput,
+  username,
+  password,
+  failSound,
+  successSound,
+  readyForInput,
+  setGlitching
 ) => {
   return [
     {
@@ -398,5 +397,5 @@ export const puzzle1 = (
         },
       },
     },
-  ] as Dialog[];
+  ];
 };

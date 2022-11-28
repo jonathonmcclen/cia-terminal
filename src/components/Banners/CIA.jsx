@@ -68,7 +68,6 @@ const CIA = () => {
         <h1 key={index} aria-hidden="true">
           {data.line}
         </h1>
-        
       ))}
     </div>
   );

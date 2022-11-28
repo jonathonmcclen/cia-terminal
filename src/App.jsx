@@ -2,16 +2,13 @@ import React, { useContext, useRef, useEffect } from 'react';
 import 'App.scss';
 
 import { GameContext } from 'contexts/GameContext';
-import type { Context } from 'types';
 
 import Input from 'components/MainForm';
 
 function App() {
-  const { gameState, setGameState, glitching, game } = useContext(
-    GameContext
-  ) as Context;
+  const { gameState, setGameState, glitching, game } = useContext(GameContext);
 
-  const handleSubmit = (inputValue: string) => {
+  const handleSubmit = (inputValue) => {
     setGameState({
       ...gameState,
       playerInput: inputValue,
@@ -20,7 +17,7 @@ function App() {
     console.log(game);
   };
 
-  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

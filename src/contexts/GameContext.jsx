@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useMemo } from 'react';
-import type { Success, Fail } from 'types';
 
 import {
   failSound,
@@ -16,31 +15,13 @@ import { puzzle4 } from 'puzzles/puzzle4';
 import Intro from 'views/Intro/Intro';
 import EndGame from 'views/EndGame/EndGame';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-interface GameStateObject {
-  currentExpectedInput: string;
-  lastInput: string;
-  playerInput: string;
-  username: string;
-  password: string;
-  gameStarted: boolean;
-  gameEnded: boolean;
-  currentPuzzle: number;
-  currentPuzzleIndex: number;
-  musicPlaying: boolean;
-  currentMusic: HTMLAudioElement;
-}
-
 export const GameContext = createContext({});
 
-export const GameProvider: React.FC<Props> = ({ children }) => {
+export const GameProvider = ({ children }) => {
   const [game, setGame] = useState([<Intro />]);
   const [firstLogin, setFirstLogin] = useState(true);
   const [glitching, setGlitching] = useState(false); // change to 'glitch' to see glitch effect
-  const [gameState, setGameState] = useState<GameStateObject>({
+  const [gameState, setGameState] = useState({
     currentExpectedInput: '',
     lastInput: '',
     playerInput: '',
