@@ -14,6 +14,8 @@ import { puzzle3 } from 'puzzles/puzzle3';
 import { puzzle4 } from 'puzzles/puzzle4';
 import Intro from 'views/Intro/Intro';
 import EndGame from 'views/EndGame/EndGame';
+import LoadingAnimation from 'components/LoadingAnimation';
+console.log('animation type', typeof LoadingAnimation);
 
 export const GameContext = createContext({});
 
@@ -30,10 +32,15 @@ export const GameProvider = ({ children }) => {
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
-    currentPuzzleIndex: 11,
+    currentPuzzleIndex: 12,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
+
+  const doLoadingAnimation = () => {
+    console.log('doLoadingAnimation');
+    return <LoadingAnimation />
+  };
 
   const timeline = useMemo(
     () => [
@@ -55,7 +62,8 @@ export const GameProvider = ({ children }) => {
           gameState.playerInput,
           failSound,
           successSound,
-          readyForInput
+          readyForInput,
+          doLoadingAnimation
         ),
       },
       {
@@ -65,7 +73,8 @@ export const GameProvider = ({ children }) => {
           setGlitching,
           failSound,
           successSound,
-          readyForInput
+          readyForInput,
+          doLoadingAnimation
         ),
       },
       {
@@ -75,7 +84,8 @@ export const GameProvider = ({ children }) => {
           setGlitching,
           failSound,
           successSound,
-          readyForInput
+          readyForInput,
+          doLoadingAnimation
         ),
       },
     ],
@@ -88,29 +98,18 @@ export const GameProvider = ({ children }) => {
     ]
   );
 
-  useEffect(() => {
-    console.log('success', gameState.currentPuzzleIndex, timeline[gameState.currentPuzzle].puzzle.length - 1);
-    if (
-      gameState.currentPuzzleIndex ===
-      timeline[gameState.currentPuzzle].puzzle.length - 1
-    ) {
-      console.log(gameState.currentPuzzle, gameState.currentPuzzleIndex);
-      setGameState({
-        ...gameState,
-        currentPuzzle: gameState.currentPuzzle + 1,
-        currentPuzzleIndex: 0,
-        currentExpectedInput:
-          timeline[gameState.currentPuzzle].puzzle[gameState.currentPuzzleIndex]
-            .dialog.expectedInput,
-      });
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameState.currentPuzzleIndex]);
+  const incrementPuzzle = (puzzle, puzzleIndex) => {
+    // console.log(gameState.currentPuzzle, gameState.currentPuzzleIndex, gameState.currentExpectedInput);
+    setGameState({
+      ...gameState,
+      currentPuzzle: puzzle,
+      currentPuzzleIndex: puzzleIndex,
+      currentExpectedInput:
+        timeline[puzzle].puzzle[puzzleIndex].dialog.expectedInput,
+    });
+  };
 
   useEffect(() => {
-    console.log(gameState);
-
     const successResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.successResponse?.map((resp, i) => {
@@ -134,6 +133,14 @@ export const GameProvider = ({ children }) => {
           </div>
         );
       if (typeof resp === 'function') resp();
+      // if (resp === 'loadingAnimation') {
+      //   console.log('boop')
+      //   return (
+      //     <div key={i} style={{ fontSize: '1.5rem' }}>
+      //       <LoadingAnimation />
+      //     </div>
+      //   );
+      // }
       return null;
     });
 
@@ -160,16 +167,28 @@ export const GameProvider = ({ children }) => {
       if (successResponse) {
         setGame([...game, successResponse]);
       }
-      setGameState((prev) => ({
-        ...prev,
-        currentPuzzleIndex: prev.currentPuzzleIndex + 1,
-        currentExpectedInput:
-          timeline[prev.currentPuzzle].puzzle[prev.currentPuzzleIndex + 1]
-            .dialog.expectedInput,
-      }));
+      if (
+        gameState.currentPuzzleIndex ===
+        timeline[gameState.currentPuzzle].puzzle.length - 1
+      ) {
+        incrementPuzzle(gameState.currentPuzzle + 1, 0);
+      } else {
+        setGameState((prev) => ({
+          ...prev,
+          currentPuzzleIndex: prev.currentPuzzleIndex + 1,
+          currentExpectedInput:
+            timeline[prev.currentPuzzle].puzzle[prev.currentPuzzleIndex + 1]
+              .dialog.expectedInput,
+        }));
+      }
     }
 
-    if (gameState.playerInput !== gameState.currentExpectedInput) {
+    if (
+      gameState.playerInput !== gameState.currentExpectedInput &&
+      gameState.playerInput !== 'music' &&
+      gameState.playerInput !== 'login' &&
+      gameState.playerInput !== 'hint'
+    ) {
       if (failureResponse) {
         setGame([...game, failureResponse]);
       }
@@ -192,8 +211,10 @@ export const GameProvider = ({ children }) => {
         currentMusic: intenseMusic,
       });
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState.playerInput]);
+  console.log(gameState);
 
   return (
     <GameContext.Provider
