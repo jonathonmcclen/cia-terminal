@@ -30,7 +30,7 @@ export const GameProvider = ({ children }) => {
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
-    currentPuzzleIndex: 0,
+    currentPuzzleIndex: 11,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
@@ -89,12 +89,37 @@ export const GameProvider = ({ children }) => {
   );
 
   useEffect(() => {
+    console.log('success', gameState.currentPuzzleIndex, timeline[gameState.currentPuzzle].puzzle.length - 1);
+    if (
+      gameState.currentPuzzleIndex ===
+      timeline[gameState.currentPuzzle].puzzle.length - 1
+    ) {
+      console.log(gameState.currentPuzzle, gameState.currentPuzzleIndex);
+      setGameState({
+        ...gameState,
+        currentPuzzle: gameState.currentPuzzle + 1,
+        currentPuzzleIndex: 0,
+        currentExpectedInput:
+          timeline[gameState.currentPuzzle].puzzle[gameState.currentPuzzleIndex]
+            .dialog.expectedInput,
+      });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameState.currentPuzzleIndex]);
+
+  useEffect(() => {
     console.log(gameState);
 
     const successResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.successResponse?.map((resp, i) => {
-      if (typeof resp === 'string') return <div key={i} style={{fontSize: '1.5rem'}}>{resp}</div>;
+      if (typeof resp === 'string')
+        return (
+          <div key={i} style={{ fontSize: '1.5rem' }}>
+            {resp}
+          </div>
+        );
       if (typeof resp === 'function') resp();
       return null;
     });
@@ -102,7 +127,12 @@ export const GameProvider = ({ children }) => {
     const failureResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.failureResponse?.map((resp, i) => {
-      if (typeof resp === 'string') return <div key={i} style={{fontSize: '1.5rem'}}>{resp}</div>;
+      if (typeof resp === 'string')
+        return (
+          <div key={i} style={{ fontSize: '1.5rem' }}>
+            {resp}
+          </div>
+        );
       if (typeof resp === 'function') resp();
       return null;
     });
@@ -112,18 +142,20 @@ export const GameProvider = ({ children }) => {
         ...gameState,
         playerInput: '',
         gameStarted: true,
-        musicPlaying: true,
+        // musicPlaying: true,
       });
-      gameState.musicPlaying
-        ? gameState.currentMusic.pause()
-        : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
-      setFirstLogin(false);
+      // gameState.musicPlaying
+      //   ? gameState.currentMusic.pause()
+      //   : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
+      // setFirstLogin(false);
     }
 
     if (
       gameState.gameStarted &&
       gameState.playerInput === gameState.currentExpectedInput &&
-      gameState.playerInput !== 'music'
+      gameState.playerInput !== 'music' &&
+      gameState.playerInput !== 'login' &&
+      gameState.playerInput !== 'hint'
     ) {
       if (successResponse) {
         setGame([...game, successResponse]);
@@ -134,16 +166,11 @@ export const GameProvider = ({ children }) => {
         currentExpectedInput:
           timeline[prev.currentPuzzle].puzzle[prev.currentPuzzleIndex + 1]
             .dialog.expectedInput,
-        // playerInput: ''
       }));
     }
 
     if (gameState.playerInput !== gameState.currentExpectedInput) {
       if (failureResponse) {
-        // setGameState((prev) => ({
-        //   ...prev,
-        //   playerInput: '',
-        // }));
         setGame([...game, failureResponse]);
       }
     }
