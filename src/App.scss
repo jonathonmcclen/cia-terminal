@@ -34,13 +34,13 @@ h1 {
 }
 
 .text-line,
-.loading-animation {
+.loading-animation, a {
   color: $green;
   font-family: IBMVGA8, consolas, Charcoal, sans-serif;
   white-space: nowrap;
   font-size: 1.4rem;
   white-space: pre;
-  line-height: 0.9rem;
+  line-height: 2rem;
 }
 
 .main-input {

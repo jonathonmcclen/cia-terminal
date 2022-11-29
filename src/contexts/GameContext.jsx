@@ -113,13 +113,15 @@ export const GameProvider = ({ children }) => {
     const successResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.successResponse?.map((resp, i) => {
+      console.log('typesFromPuzzle', typeof resp, resp);
       if (typeof resp === 'string')
         return (
-          <div key={i} style={{ fontSize: '1.5rem' }}>
+          <div key={i} style={{ fontSize: '1.5rem' }} className="text-line">
             {resp}
           </div>
         );
       if (typeof resp === 'function') resp();
+      if (typeof resp === 'object') return resp;
       return null;
     });
 
