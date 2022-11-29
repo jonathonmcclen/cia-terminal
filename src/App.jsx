@@ -35,7 +35,8 @@ function App() {
               paddingLeft: '2rem',
             }}
           >
-            {game && game.map((view, index) => <div key={index}>{view}</div>)}
+            {/* map through game and set timeout between each and every element, parent and child */}
+            {game && game.map((view, index) => <React.Fragment key={index}>{view}</React.Fragment>)}
             <div ref={messagesEndRef} />
           </div>
           <Input handleSubmit={handleSubmit} />

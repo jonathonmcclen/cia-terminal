@@ -6,7 +6,6 @@ export const puzzle2 = (
   failSound,
   successSound,
   readyForInput,
-  doLoadingAnimation
 ) => {
   return [
     {

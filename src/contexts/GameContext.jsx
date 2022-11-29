@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useMemo } from 'react';
+import 'App.scss';
 
 import {
   failSound,
@@ -14,8 +15,6 @@ import { puzzle3 } from 'puzzles/puzzle3';
 import { puzzle4 } from 'puzzles/puzzle4';
 import Intro from 'views/Intro/Intro';
 import EndGame from 'views/EndGame/EndGame';
-import LoadingAnimation from 'components/LoadingAnimation';
-console.log('animation type', typeof LoadingAnimation);
 
 export const GameContext = createContext({});
 
@@ -31,16 +30,11 @@ export const GameProvider = ({ children }) => {
     password: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 0,
-    currentPuzzleIndex: 12,
+    currentPuzzle: 1,
+    currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
-
-  const doLoadingAnimation = () => {
-    console.log('doLoadingAnimation');
-    return <LoadingAnimation />
-  };
 
   const timeline = useMemo(
     () => [
@@ -62,8 +56,7 @@ export const GameProvider = ({ children }) => {
           gameState.playerInput,
           failSound,
           successSound,
-          readyForInput,
-          doLoadingAnimation
+          readyForInput
         ),
       },
       {
@@ -73,8 +66,7 @@ export const GameProvider = ({ children }) => {
           setGlitching,
           failSound,
           successSound,
-          readyForInput,
-          doLoadingAnimation
+          readyForInput
         ),
       },
       {
@@ -84,8 +76,7 @@ export const GameProvider = ({ children }) => {
           setGlitching,
           failSound,
           successSound,
-          readyForInput,
-          doLoadingAnimation
+          readyForInput
         ),
       },
     ],
@@ -99,7 +90,6 @@ export const GameProvider = ({ children }) => {
   );
 
   const incrementPuzzle = (puzzle, puzzleIndex) => {
-    // console.log(gameState.currentPuzzle, gameState.currentPuzzleIndex, gameState.currentExpectedInput);
     setGameState({
       ...gameState,
       currentPuzzle: puzzle,
@@ -109,40 +99,54 @@ export const GameProvider = ({ children }) => {
     });
   };
 
+  const timeout = (element, time) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log(element, time)
+        return element
+      }, time);
+    });
+  };
+
   useEffect(() => {
     const successResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.successResponse?.map((resp, i) => {
-      console.log('typesFromPuzzle', typeof resp, resp);
       if (typeof resp === 'string')
         return (
-          <div key={i} style={{ fontSize: '1.5rem' }} className="text-line">
+          <div key={i} className="text-line">
             {resp}
           </div>
         );
       if (typeof resp === 'function') resp();
       if (typeof resp === 'object') return resp;
       return null;
+      // let result, time;
+      // if (typeof resp === 'string') {
+      //   time = 1000;
+      //   result = (
+      //     <div key={i} className="text-line">
+      //       {resp}
+      //     </div>
+      //   );
+      // }
+      // if (typeof resp === 'function') {
+      //   time = 2000;
+      //   result = resp();
+      // }
+      // if (typeof resp === 'object') {
+      //   time = 3000;
+      //   result = resp;
+      // }
+      // return timeout(result, time);
     });
 
     const failureResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.failureResponse?.map((resp, i) => {
-      if (typeof resp === 'string')
-        return (
-          <div key={i} style={{ fontSize: '1.5rem' }}>
-            {resp}
-          </div>
-        );
+      if (typeof resp === 'string') return <div key={i}>{resp}</div>;
       if (typeof resp === 'function') resp();
-      // if (resp === 'loadingAnimation') {
-      //   console.log('boop')
-      //   return (
-      //     <div key={i} style={{ fontSize: '1.5rem' }}>
-      //       <LoadingAnimation />
-      //     </div>
-      //   );
-      // }
+      if (typeof resp === 'object') return resp;
       return null;
     });
 
@@ -151,18 +155,18 @@ export const GameProvider = ({ children }) => {
         ...gameState,
         playerInput: '',
         gameStarted: true,
-        // musicPlaying: true,
+        musicPlaying: true,
       });
-      // gameState.musicPlaying
-      //   ? gameState.currentMusic.pause()
-      //   : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
-      // setFirstLogin(false);
+      gameState.musicPlaying
+        ? gameState.currentMusic.pause()
+        : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
+      setFirstLogin(false);
     }
 
     if (
       gameState.gameStarted &&
       gameState.playerInput === gameState.currentExpectedInput &&
-      gameState.playerInput !== 'music' &&
+      gameState.lastInput !== 'music' &&
       gameState.playerInput !== 'login' &&
       gameState.playerInput !== 'hint'
     ) {
@@ -187,7 +191,7 @@ export const GameProvider = ({ children }) => {
 
     if (
       gameState.playerInput !== gameState.currentExpectedInput &&
-      gameState.playerInput !== 'music' &&
+      gameState.lastInput !== 'music' &&
       gameState.playerInput !== 'login' &&
       gameState.playerInput !== 'hint'
     ) {
