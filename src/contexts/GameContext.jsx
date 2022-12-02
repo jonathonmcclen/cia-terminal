@@ -32,7 +32,7 @@ export const GameProvider = ({ children }) => {
     password: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 1,
+    currentPuzzle: 0,
     currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
@@ -107,15 +107,12 @@ export const GameProvider = ({ children }) => {
         gameState.currentPuzzleIndex
       ].dialog.responses.successResponse?.map((resp, i) => {
         // console.log(resp)
-        if (typeof resp === 'string')
-          return (
-            <div key={i} className="text-line">
-              {resp}
-            </div>
-          );
+        if (typeof resp === 'string') return resp
+            
+          
         setTimeout(() => {
           if (typeof resp === 'function') resp();
-          if (typeof resp === 'object') return resp;
+          if (typeof resp === 'object') return `${resp}`;
         }, 1000 * i);
         return null;
       });
@@ -160,7 +157,7 @@ export const GameProvider = ({ children }) => {
     ) {
       if (successResponse) {
         setGame([...game, <Dialog response={successResponse} />]);
-        console.log(successResponse());
+        // setGame([...game, <LoadingAnimation />]);
       }
       if (
         gameState.currentPuzzleIndex ===

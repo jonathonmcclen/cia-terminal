@@ -1,16 +1,6 @@
-import LoadingAnimation from 'components/LoadingAnimation';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
-import { renderElement } from 'components/Dialog';
 
-// import { doLoading } from 'utils';
-
-export const puzzle2 = (
-  lastInput,
-  failSound,
-  successSound,
-  readyForInput,
-  // doLoading
-) => {
+export const puzzle2 = (lastInput, failSound, successSound, readyForInput) => {
   return [
     {
       id: 1,
@@ -23,18 +13,12 @@ export const puzzle2 = (
             `${outputPrefix} Decrypting...`,
             'loading',
             () => successSound.play(),
-            <a
-              href="https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government
-            </a>,
+            'https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government',
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -45,7 +29,7 @@ export const puzzle2 = (
           jokeResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             `${outputPrefix} Wait...`,
             `${outputPrefix} This is the EXAMPLE`,
             `${outputPrefix} VERY FUNNY, Mr. Funny Guy`,
@@ -66,18 +50,12 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government
-            </a>,
+            'https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government',
             `${outputPrefix} Decrypted URLs can be pasted into your browser.`,
             `${outputPrefix} You can also click on the link above to open the decrypted URL.`,
             `${outputPrefix} Some Decrypted URLs can be Hacked.
@@ -89,8 +67,8 @@ export const puzzle2 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -111,7 +89,7 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
@@ -122,8 +100,8 @@ export const puzzle2 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -143,7 +121,7 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
@@ -155,8 +133,8 @@ export const puzzle2 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -176,20 +154,14 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 82.607.459`,
             `${outputPrefix} Authentication Code: That would be too easy :)`,
             `${outputPrefix} DECRYPTED URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoobig"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoobig
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoobig',
             `${outputPrefix} Decrypted URLs can be pasted into your browser.`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
@@ -197,8 +169,8 @@ export const puzzle2 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -218,20 +190,14 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} SERVER IP: 62.746.271`,
             `${outputPrefix} Authentication Code: 651697597`,
             `${outputPrefix} DECRYPTED URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoosmall"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoosmall
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoosmall',
             `${outputPrefix} Decrypted URLs can be pasted into your browser.`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
@@ -239,8 +205,8 @@ export const puzzle2 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -260,18 +226,12 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} DECRYPTED URL:`,
-            <a
-              href="https://twitter.com/Anonymo00841943"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://twitter.com/Anonymo00841943
-            </a>,
+            'https://twitter.com/Anonymo00841943',
             `${outputPrefix} This URL is hackable,`,
             `${outputPrefix} DECRYPTED URL's can be pasted into your browser`,
             spacer,
@@ -280,8 +240,8 @@ export const puzzle2 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -301,7 +261,7 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
@@ -318,21 +278,15 @@ export const puzzle2 = (
             `${outputPrefix} Message10> Nine peices of silver.`,
             `${outputPrefix} CHECK YOUR EMAIL.`,
             `${outputPrefix} IF YOU DIDNT RECIEVE AN EMAIL, VISIT:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Email-2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Email-2
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Email-2',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,

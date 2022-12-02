@@ -1,4 +1,3 @@
-import LoadingAnimation from 'components/LoadingAnimation';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle3 = (
@@ -18,26 +17,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV2/FileLokPuzzle1"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV2/FileLokPuzzle1
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV2/FileLokPuzzle1',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -57,26 +50,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV2/FileLokPuzzle2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV2/FileLokPuzzle2
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV2/FileLokPuzzle2',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -96,26 +83,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV3/FileLokPuzzle3"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV3/FileLokPuzzle3
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV3/FileLokPuzzle3',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -135,26 +116,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV4/FileLokPuzzle4"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV4/FileLokPuzzle4
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV4/FileLokPuzzle4',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -174,26 +149,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV5/FileLokPuzzle5"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV5/FileLokPuzzle5
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV5/FileLokPuzzle5',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -213,7 +182,7 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Hacking...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
@@ -227,8 +196,8 @@ export const puzzle3 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -248,26 +217,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV6/FileLokPuzzle6"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV6/FileLokPuzzle6
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV6/FileLokPuzzle6',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -287,26 +250,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV7/FileLokPuzzle7"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV7/FileLokPuzzle7
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV7/FileLokPuzzle7',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -326,26 +283,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV8/FileLokPuzzle8"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV8/FileLokPuzzle8
-            </a>,
+            'https://escroomgames.com/Games/Daffodil362/Puzzles/FileLokV8/FileLokPuzzle8',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -365,26 +316,20 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             spacer,
             `${outputPrefix} Decrypted URL:`,
-            <a
-              href="https://www.google.com/maps/@33.7751473,-118.0572065,3a,75y,353.4h,77.36t/data=!3m6!1e1!3m4!1sX1ApixJvHniChL9lnJyiuw!2e0!7i16384!8i8192"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://www.google.com/maps/@33.7751473,-118.0572065,3a,75y,353.4h,77.36t/data=!3m6!1e1!3m4!1sX1ApixJvHniChL9lnJyiuw!2e0!7i16384!8i8192
-            </a>,
+            'https://www.google.com/maps/@33.7751473,-118.0572065,3a,75y,353.4h,77.36t/data=!3m6!1e1!3m4!1sX1ApixJvHniChL9lnJyiuw!2e0!7i16384!8i8192',
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,
@@ -403,7 +348,7 @@ export const puzzle3 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => {
               failSound.play();
               setGlitching(true);
@@ -421,8 +366,8 @@ export const puzzle3 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${userInputPrefix} ${lastInput}`,
+            () => failSound.play(),
             `${outputPrefix} FAIL`,
             `${outputPrefix} THIS IS NOT A VALID URL`,
             spacer,

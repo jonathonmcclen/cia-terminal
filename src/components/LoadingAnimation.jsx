@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const LoadingAnimation = () => {
-  const [bars, setBars] = useState('Hacking...');
+  const [bars, setBars] = useState('');
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const LoadingAnimation = () => {
       setTimeout(() => {
         setNumber(number + 1);
         setBars(loading[number]);
-      }, 200);
+      }, 80);
     }
   }, [number]);
 

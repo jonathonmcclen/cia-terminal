@@ -83,8 +83,8 @@ export const puzzle1 = (
         hint: '102',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -95,8 +95,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -110,8 +110,8 @@ export const puzzle1 = (
         hint: '103',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -128,8 +128,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -143,8 +143,8 @@ export const puzzle1 = (
         hint: '104',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -160,8 +160,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -175,8 +175,8 @@ export const puzzle1 = (
         hint: '105',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -192,8 +192,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -207,8 +207,8 @@ export const puzzle1 = (
         hint: '106',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -224,8 +224,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -239,8 +239,8 @@ export const puzzle1 = (
         hint: '107',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -256,8 +256,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -271,8 +271,8 @@ export const puzzle1 = (
         hint: '108',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -288,8 +288,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -303,8 +303,8 @@ export const puzzle1 = (
         hint: '109',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -320,8 +320,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -335,8 +335,8 @@ export const puzzle1 = (
         hint: '110',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -356,8 +356,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],
@@ -371,8 +371,8 @@ export const puzzle1 = (
         hint: '111',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
@@ -389,8 +389,8 @@ export const puzzle1 = (
             () => readyForInput.play(),
           ],
           failureResponse: [
-            () => failSound.play(),
             `${outputPrefix} Command Submission '${lastInput}' Not Recognized`,
+            () => failSound.play(),
             spacer,
             () => readyForInput.play(),
           ],

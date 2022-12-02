@@ -14,8 +14,8 @@ export const puzzle4 = (
         expectedInput: '840253',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 2/10`,
@@ -51,8 +51,8 @@ export const puzzle4 = (
         expectedInput: '282837',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 3/10`,
@@ -87,8 +87,8 @@ export const puzzle4 = (
         expectedInput: '372672',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 4/10`,
@@ -124,8 +124,8 @@ export const puzzle4 = (
         expectedInput: '774093',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 5/10`,
@@ -161,8 +161,8 @@ export const puzzle4 = (
         expectedInput: '674931',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 6/10`,
@@ -198,8 +198,8 @@ export const puzzle4 = (
         expectedInput: '386307',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 7/10`,
@@ -235,8 +235,8 @@ export const puzzle4 = (
         expectedInput: '371338',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 8/10`,
@@ -272,8 +272,8 @@ export const puzzle4 = (
         expectedInput: '429578',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 9/10`,
@@ -309,8 +309,8 @@ export const puzzle4 = (
         expectedInput: '724985',
         responses: {
           successResponse: [
-            () => successSound.play(),
             `${userInputPrefix} '${lastInput}'`,
+            () => successSound.play(),
             `${outputPrefix} SUCCESS!`,
             spacer,
             `${outputPrefix} ERROR 10/10`,
