@@ -404,8 +404,11 @@ export const puzzle3 = (
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
             <LoadingAnimation />,
-            () => successSound.play(),
-            setGlitching(true),
+            () => {
+              failSound.play();
+              setGlitching(true);
+            },
+
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
             `${outputPrefix} CRITICAL ERROR`,
             setGlitching(false),

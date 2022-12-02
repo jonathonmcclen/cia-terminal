@@ -14,7 +14,6 @@ function App() {
       playerInput: inputValue,
       lastInput: inputValue,
     });
-    console.log(game);
   };
 
   const messagesEndRef = useRef(null);

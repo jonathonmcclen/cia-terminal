@@ -15,6 +15,8 @@ import { puzzle3 } from 'puzzles/puzzle3';
 import { puzzle4 } from 'puzzles/puzzle4';
 import Intro from 'views/Intro/Intro';
 import EndGame from 'views/EndGame/EndGame';
+import Dialog from 'components/Dialog';
+import LoadingAnimation from 'components/LoadingAnimation';
 
 export const GameContext = createContext({});
 
@@ -30,7 +32,7 @@ export const GameProvider = ({ children }) => {
     password: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 0,
+    currentPuzzle: 1,
     currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
@@ -111,10 +113,10 @@ export const GameProvider = ({ children }) => {
               {resp}
             </div>
           );
-        // setTimeout(() => {
+        setTimeout(() => {
           if (typeof resp === 'function') resp();
           if (typeof resp === 'object') return resp;
-        // }, 1000 * i);
+        }, 1000 * i);
         return null;
       });
 
@@ -157,11 +159,7 @@ export const GameProvider = ({ children }) => {
       gameState.playerInput !== 'hint'
     ) {
       if (successResponse) {
-        const updatedState = {};
-
-        setGame([...game, successResponse()]);
-        // setGame([...game, successResponse()]);
-
+        setGame([...game, <Dialog response={successResponse} />]);
         console.log(successResponse());
       }
       if (

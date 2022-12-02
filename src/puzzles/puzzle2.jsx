@@ -1,11 +1,15 @@
 import LoadingAnimation from 'components/LoadingAnimation';
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
+import { renderElement } from 'components/Dialog';
+
+// import { doLoading } from 'utils';
 
 export const puzzle2 = (
   lastInput,
   failSound,
   successSound,
   readyForInput,
+  // doLoading
 ) => {
   return [
     {
@@ -17,7 +21,7 @@ export const puzzle2 = (
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Decrypting...`,
-            <LoadingAnimation />,
+            'loading',
             () => successSound.play(),
             <a
               href="https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government"

@@ -54,11 +54,13 @@ export const puzzle1 = (
         expectedInput: 'password',
         responses: {
           successResponse: [
-            setGlitching(true),
-            () => failSound.play(),
+            () => {
+              setGlitching(true);
+              failSound.play();
+            },
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Command Entry Recognized`,
-            setGlitching(false),
+            () => setGlitching(false),
             `${outputPrefix} FAILED`,
             spacer,
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
