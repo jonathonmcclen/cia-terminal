@@ -30,7 +30,7 @@ export const GameProvider = ({ children }) => {
     password: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 1,
+    currentPuzzle: 0,
     currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
@@ -99,16 +99,24 @@ export const GameProvider = ({ children }) => {
     });
   };
 
-  const timeout = (element, time) => {
+  function delay(ms) {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log(element, time)
-        return element
-      }, time);
+      setTimeout(resolve, ms);
     });
-  };
+  }
+
+  async function asyncCall(res) {
+    console.log('hit');
+    await delay(1000);
+    setGame([...game, res]);
+    console.log('set');
+  }
 
   useEffect(() => {
+    // setTimeout(() => {
+    //   console.log('your mom')
+    //   return
+    // }, 2000);
     const successResponse = timeline[gameState.currentPuzzle].puzzle[
       gameState.currentPuzzleIndex
     ].dialog.responses.successResponse?.map((resp, i) => {
@@ -155,12 +163,12 @@ export const GameProvider = ({ children }) => {
         ...gameState,
         playerInput: '',
         gameStarted: true,
-        musicPlaying: true,
+        // musicPlaying: true,
       });
-      gameState.musicPlaying
-        ? gameState.currentMusic.pause()
-        : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
-      setFirstLogin(false);
+      // gameState.musicPlaying
+      //   ? gameState.currentMusic.pause()
+      //   : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
+      // setFirstLogin(false);
     }
 
     if (
@@ -171,7 +179,11 @@ export const GameProvider = ({ children }) => {
       gameState.playerInput !== 'hint'
     ) {
       if (successResponse) {
+        // debugger;
         setGame([...game, successResponse]);
+        // successResponse.forEach((response) => {
+        //   asyncCall(response);
+        // });
       }
       if (
         gameState.currentPuzzleIndex ===
@@ -218,9 +230,9 @@ export const GameProvider = ({ children }) => {
       });
     }
 
+    console.log('game', game);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState.playerInput]);
-  console.log(gameState);
 
   return (
     <GameContext.Provider
