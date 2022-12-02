@@ -99,76 +99,54 @@ export const GameProvider = ({ children }) => {
     });
   };
 
-  function delay(ms) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  }
-
-  async function asyncCall(res) {
-    console.log('hit');
-    await delay(1000);
-    setGame([...game, res]);
-    console.log('set');
-  }
-
   useEffect(() => {
-    // setTimeout(() => {
-    //   console.log('your mom')
-    //   return
-    // }, 2000);
-    const successResponse = timeline[gameState.currentPuzzle].puzzle[
-      gameState.currentPuzzleIndex
-    ].dialog.responses.successResponse?.map((resp, i) => {
-      if (typeof resp === 'string')
-        return (
-          <div key={i} className="text-line">
-            {resp}
-          </div>
-        );
-      if (typeof resp === 'function') resp();
-      if (typeof resp === 'object') return resp;
-      return null;
-      // let result, time;
-      // if (typeof resp === 'string') {
-      //   time = 1000;
-      //   result = (
-      //     <div key={i} className="text-line">
-      //       {resp}
-      //     </div>
-      //   );
-      // }
-      // if (typeof resp === 'function') {
-      //   time = 2000;
-      //   result = resp();
-      // }
-      // if (typeof resp === 'object') {
-      //   time = 3000;
-      //   result = resp;
-      // }
-      // return timeout(result, time);
-    });
+    const successResponse = () =>
+      timeline[gameState.currentPuzzle].puzzle[
+        gameState.currentPuzzleIndex
+      ].dialog.responses.successResponse?.map((resp, i) => {
+        // console.log(resp)
+        if (typeof resp === 'string')
+          return (
+            <div key={i} className="text-line">
+              {resp}
+            </div>
+          );
+        // setTimeout(() => {
+          if (typeof resp === 'function') resp();
+          if (typeof resp === 'object') return resp;
+        // }, 1000 * i);
+        return null;
+      });
 
-    const failureResponse = timeline[gameState.currentPuzzle].puzzle[
-      gameState.currentPuzzleIndex
-    ].dialog.responses.failureResponse?.map((resp, i) => {
-      if (typeof resp === 'string') return <div key={i}>{resp}</div>;
-      if (typeof resp === 'function') resp();
-      if (typeof resp === 'object') return resp;
-      return null;
-    });
+    const failureResponse = () =>
+      timeline[gameState.currentPuzzle].puzzle[
+        gameState.currentPuzzleIndex
+      ].dialog.responses.failureResponse?.map((resp, i) => {
+        // console.log(resp)
+        if (typeof resp === 'string')
+          return (
+            <div key={i} className="text-line">
+              {resp}
+            </div>
+          );
+        setTimeout(() => {
+          if (typeof resp === 'function') resp();
+          if (typeof resp === 'object') return resp;
+        }, 1000 * i);
+        return null;
+      });
 
     if (gameState.playerInput.toLowerCase() === 'login' && firstLogin) {
       setGameState({
         ...gameState,
         playerInput: '',
         gameStarted: true,
-        // musicPlaying: true,
+        musicPlaying: true,
       });
-      // gameState.musicPlaying
-      //   ? gameState.currentMusic.pause()
-      //   : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
-      // setFirstLogin(false);
+      gameState.musicPlaying
+        ? gameState.currentMusic.pause()
+        : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
+      setFirstLogin(false);
     }
 
     if (
@@ -179,11 +157,12 @@ export const GameProvider = ({ children }) => {
       gameState.playerInput !== 'hint'
     ) {
       if (successResponse) {
-        // debugger;
-        setGame([...game, successResponse]);
-        // successResponse.forEach((response) => {
-        //   asyncCall(response);
-        // });
+        const updatedState = {};
+
+        setGame([...game, successResponse()]);
+        // setGame([...game, successResponse()]);
+
+        console.log(successResponse());
       }
       if (
         gameState.currentPuzzleIndex ===
@@ -208,7 +187,8 @@ export const GameProvider = ({ children }) => {
       gameState.playerInput !== 'hint'
     ) {
       if (failureResponse) {
-        setGame([...game, failureResponse]);
+        // setGame([...game, failureResponse]);
+        failureResponse();
       }
     }
 
@@ -230,7 +210,6 @@ export const GameProvider = ({ children }) => {
       });
     }
 
-    console.log('game', game);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState.playerInput]);
 

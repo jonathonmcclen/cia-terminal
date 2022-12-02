@@ -22,9 +22,7 @@ export const puzzle1 = (
             spacer,
             () => readyForInput.play(),
           ],
-          failureResponse: [
-            () => failSound.play(),
-          ],
+          failureResponse: [],
         },
       },
     },
