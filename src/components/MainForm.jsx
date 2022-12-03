@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
 
 const MainForm = ({ handleSubmit }) => {
-  const { gameState, setGameState } = useContext(GameContext);
-  const [inputValue, setInputValue] = useState('');
+  const { inputValue, setInputValue } = useContext(GameContext);
 
-  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -13,13 +11,6 @@ const MainForm = ({ handleSubmit }) => {
         setInputValue('');
       }
     };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [gameState, handleSubmit, inputValue, setGameState]);
 
   useEffect(() => {
     const audio = new Audio(
@@ -40,6 +31,8 @@ const MainForm = ({ handleSubmit }) => {
           setInputValue(e.target.value);
         }}
         aria-label="response-input"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
       />
     </form>
   );

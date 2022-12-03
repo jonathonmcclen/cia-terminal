@@ -7,7 +7,8 @@ export const puzzle1 = (
   failSound,
   successSound,
   readyForInput,
-  setGlitching
+  setGlitching,
+  // returnUsername
 ) => {
   return [
     {

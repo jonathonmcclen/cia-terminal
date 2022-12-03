@@ -5,7 +5,10 @@ export const puzzle4 = (
   setGlitching,
   failSound,
   successSound,
-  readyForInput
+  readyForInput,
+  setGameState,
+  gameState,
+  setGameHidden,
 ) => {
   return [
     {
@@ -34,9 +37,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -70,9 +73,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER /& TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -107,9 +110,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER /& TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -144,9 +147,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER /& TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -181,9 +184,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER /& TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -218,9 +221,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER /& TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -255,9 +258,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER & TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -292,9 +295,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER & TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -329,9 +332,9 @@ export const puzzle4 = (
           failureResponse: [
             () => failSound.play(),
             `${userInputPrefix} '${lastInput}'`,
-            setGlitching(true),
+            () => setGlitching(true),
             `${outputPrefix} FAILED`,
-            setGlitching(false),
+            () => setGlitching(false),
             spacer,
             `${outputPrefix} LOG LINES OUT OF ORDER & TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
@@ -345,10 +348,64 @@ export const puzzle4 = (
       dialog: {
         expectedInput: '860743',
         responses: {
-          successResponse: [],
-          failureResponse: [],
+          successResponse: [
+            () => gameState.currentMusic.pause(),
+            () => failSound.play(),
+            () => setGlitching(true),
+            'CRITICAL FAILURE',
+            'CRITICAL FAILURE',
+            () => setGlitching(false),
+            'CRITICAL FAILURE',
+            'CRITICAL FAILURE',
+            () => failSound.play(),
+            () => setGlitching(true),
+            'CRITICAL FAILURE',
+            'CRITICAL FAILURE',
+            () => setGlitching(false),
+            'CRITICAL FAILURE',
+            'CRITICAL FAILURE',
+            () => failSound.play(),
+            () => setGlitching(true),
+            () => {
+              setGlitching(false);
+              setGameHidden(true);
+            },
+            'Rebooting...',
+            () => setGameHidden(false),
+            'FAILED TO REBOOT...',
+            () => setGlitching(true),
+            'CRITICAL FAILURE',
+            'CRITICAL FAILURE',
+            () =>
+              setGameState({
+                ...gameState,
+                gameEnded: true,
+                gameStarted: false,
+              }),
+          ],
+          failureResponse: [
+            () => failSound.play(),
+            `${userInputPrefix} '${lastInput}'`,
+            () => setGlitching(true),
+            `${outputPrefix} FAILED`,
+            () => setGlitching(false),
+            spacer,
+            `${outputPrefix} LOG LINES OUT OF ORDER & TOO LONG. TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
+            spacer,
+            () => readyForInput.play(),
+          ],
         },
       },
     },
+    {
+      id: 11,
+      dialog: {
+        expectedInput: '',
+        responses: {
+          successResponse: [''],
+          failureResponse: [() => failSound.play()],
+        },
+      },
+    }
   ];
 };

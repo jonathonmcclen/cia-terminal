@@ -8,6 +8,7 @@
 }
 
 $green: #008000;
+$blue: #3a8fff;
 
 .App {
   position: fixed;
@@ -33,15 +34,35 @@ h1 {
   line-height: 0.9rem;
 }
 
+.blue-h1 {
+  color: $blue;
+  font-family: IBMVGA8, consolas, Charcoal, sans-serif;
+  white-space: nowrap;
+  font-family: monospace;
+  white-space: pre;
+  line-height: 0.9rem;
+}
+
 .text-line,
-.loading-animation, a {
+.loading-animation,
+a {
   color: $green;
   font-family: IBMVGA8, consolas, Charcoal, sans-serif;
   white-space: nowrap;
   font-size: 2rem;
   white-space: pre;
   line-height: 2rem;
-  margin-bottom: .5rem
+  margin-bottom: 0.5rem;
+}
+
+.blue-text-line {
+  color: $blue;
+  font-family: IBMVGA8, consolas, Charcoal, sans-serif;
+  white-space: nowrap;
+  font-size: 2rem;
+  white-space: pre;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .main-input {

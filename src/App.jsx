@@ -2,11 +2,13 @@ import React, { useContext, useRef, useEffect } from 'react';
 import 'App.scss';
 
 import { GameContext } from 'contexts/GameContext';
-
 import Input from 'components/MainForm';
+import EndGame from 'views/EndGame/EndGame';
+import LoadingAnimation from 'components/LoadingAnimation';
 
 function App() {
-  const { gameState, setGameState, glitching, game } = useContext(GameContext);
+  const { gameState, setGameState, glitching, game, gameHidden } =
+    useContext(GameContext);
 
   const handleSubmit = (inputValue) => {
     setGameState({
@@ -22,6 +24,13 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [game]);
 
+  const rebootStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
+
   return (
     <div className="App">
       <div className={glitching ? 'game glitch' : 'game'}>
@@ -34,11 +43,18 @@ function App() {
               paddingLeft: '2rem',
             }}
           >
-            {/* map through game and set timeout between each and every element, parent and child */}
-            {game && game.map((view, index) => <React.Fragment key={index}>{view}</React.Fragment>)}
+            {game &&
+              !gameState.gameEnded &&
+              game.map((view, index) => <div key={index}>{view}</div>)}
+            {gameState.gameEnded && <EndGame />}
             <div ref={messagesEndRef} />
           </div>
-          <Input handleSubmit={handleSubmit} />
+          {!gameState.gameEnded && <Input handleSubmit={handleSubmit} />}
+          {gameHidden && (
+            <div className="rebooting" style={rebootStyle}>
+              <LoadingAnimation />
+            </div>
+          )}
         </>
       </div>
     </div>
