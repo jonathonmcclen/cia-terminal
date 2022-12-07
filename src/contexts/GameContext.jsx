@@ -22,25 +22,31 @@ export const GameContext = createContext({});
 export const GameProvider = ({ children }) => {
   const [gameHidden, setGameHidden] = useState(false);
   const [username, setUsername] = useState(''); // username
+  const [password, setPassword] = useState(''); // password
   const [inputValue, setInputValue] = useState(''); // player input
   const [game, setGame] = useState([<Intro />]); // game is an array of views
   const [firstLogin, setFirstLogin] = useState(true); // used to determine if the user has logged in for the first time
   const [firstJoke, setFirstJoke] = useState(true); // used to determine if the user has heard the first joke
-  const [glitching, setGlitching] = useState(false);
+  const [glitching, setGlitching] = useState(false); // used to determine if the screen is glitching
+  const [startTime, setStartTime] = useState(0); // used to determine the start time of the game
   const [gameState, setGameState] = useState({
     // used to store the state of the game
     currentExpectedInput: '',
     lastInput: '',
     playerInput: '',
-    // username: '',
     password: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 3,
-    currentPuzzleIndex: 9,
+    currentPuzzle: 0,
+    currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
+
+  useEffect(() => {
+    setStartTime(Date.now());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameState.gameStarted]);
 
   // const returnUsername = () => {
   //   console.log(inputValue)
@@ -54,11 +60,11 @@ export const GameProvider = ({ children }) => {
         puzzle: puzzle1(
           gameState.lastInput,
           username,
-          gameState.password,
+          password,
           failSound,
           successSound,
           readyForInput,
-          setGlitching,
+          setGlitching
         ),
       },
       {
@@ -90,11 +96,11 @@ export const GameProvider = ({ children }) => {
           readyForInput,
           setGameState,
           gameState,
-          setGameHidden,
+          setGameHidden
         ),
       },
     ],
-    [gameState, username]
+    [gameState, password, username]
   );
 
   const incrementPuzzle = (puzzle, puzzleIndex) => {
@@ -124,11 +130,7 @@ export const GameProvider = ({ children }) => {
 
   // };
 
-  
-
   useEffect(() => {
-    // checkIfUsername();
-    // console.log(username, 'boom');
     const successResponse = () =>
       timeline[gameState.currentPuzzle].puzzle[
         gameState.currentPuzzleIndex
@@ -169,9 +171,9 @@ export const GameProvider = ({ children }) => {
     if (
       gameState.gameStarted &&
       gameState.playerInput === gameState.currentExpectedInput &&
-      gameState.lastInput !== 'music' &&
-      gameState.playerInput !== 'login' &&
-      gameState.playerInput !== 'hint'
+      gameState.lastInput.toLowerCase() !== 'music' &&
+      gameState.playerInput.toLowerCase() !== 'login' &&
+      gameState.playerInput.toLowerCase() !== 'hint'
     ) {
       if (successResponse) {
         setGame([...game, <Dialog response={successResponse} />]);
@@ -195,9 +197,9 @@ export const GameProvider = ({ children }) => {
     if (
       gameState.gameStarted &&
       gameState.playerInput !== gameState.currentExpectedInput &&
-      gameState.lastInput !== 'music' &&
-      gameState.playerInput !== 'login' &&
-      gameState.playerInput !== 'hint'
+      gameState.lastInput.toLowerCase() !== 'music' &&
+      gameState.playerInput.toLowerCase() !== 'login' &&
+      gameState.playerInput.toLowerCase() !== 'hint'
     ) {
       if (failureResponse) {
         setGame([...game, <Dialog response={failureResponse} />]);
@@ -271,7 +273,8 @@ export const GameProvider = ({ children }) => {
         game,
         inputValue,
         setInputValue,
-        gameHidden
+        gameHidden,
+        startTime
       }}
     >
       {children}
