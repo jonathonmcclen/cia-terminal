@@ -50,7 +50,21 @@ const EndGame = () => {
             <br />
           </React.Fragment>,
         ]);
-      } else {
+      } else if (rollCredits[credits.length] === 'USERNAME') {
+        setCredits((credits) => [
+          ...credits,
+          <React.Fragment key={rollCredits[credits.length]}>
+            <div
+              className="blue-text-line"
+              aria-label="credits"
+            >
+              {localStorage.getItem('CIAusername')}
+            </div>
+            <br />
+          </React.Fragment>,
+        ]);
+      }
+      else {
       const credit = setTimeout(() => {
         setCredits((credits) => [
           ...credits,

@@ -40,6 +40,7 @@ export const rollCredits = [
   'Opening Back Door',
   'Closing Back Door, So We Don\'t Let The Secrets Out',
   'CONGRATULATIONS!',
+  'USERNAME',
   'You have completed game one: Daffodil362',
   'GAMEPLAY TIME',
   'CREDITS:',

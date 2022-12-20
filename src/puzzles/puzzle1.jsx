@@ -2,13 +2,10 @@ import { userInputPrefix, outputPrefix, spacer } from 'utils';
 
 export const puzzle1 = (
   lastInput,
-  username,
-  password,
   failSound,
   successSound,
   readyForInput,
   setGlitching,
-  // returnUsername
 ) => {
   return [
     {
@@ -20,7 +17,6 @@ export const puzzle1 = (
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             `${outputPrefix} Please enter your username.`,
-            "Just type 'username', for now -- pending fix",
             spacer,
             () => readyForInput.play(),
           ],
@@ -37,7 +33,6 @@ export const puzzle1 = (
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Username '${lastInput}' recognized`,
             `${outputPrefix} Please enter your password.`,
-            "Just type 'password', for now -- pending fix",
             spacer,
             () => readyForInput.play(),
           ],
@@ -62,7 +57,7 @@ export const puzzle1 = (
               failSound.play();
             },
             `${userInputPrefix} '${lastInput}'`,
-            `${outputPrefix} Command Entry Recognized`,
+            `${outputPrefix} Password Not Recognized`,
             () => setGlitching(false),
             `${outputPrefix} FAILED`,
             spacer,
@@ -379,7 +374,7 @@ export const puzzle1 = (
             `${outputPrefix} SUCCESS`,
             `${outputPrefix} Command Submission '${lastInput}' recognized`,
             spacer,
-            `${outputPrefix} Login Successful for user ${username}`,
+            `${outputPrefix} Login Successful for ${localStorage.getItem('CIAusername')}`,
             `${outputPrefix} Your C.I.A terminal is now capable of Hacking and Decrypting URLs`,
             `${outputPrefix} ENCRYPTED URLs look like this:`,
             `${outputPrefix} *** EXAMPLE ****`,

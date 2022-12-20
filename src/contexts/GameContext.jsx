@@ -21,8 +21,6 @@ export const GameContext = createContext({});
 
 export const GameProvider = ({ children }) => {
   const [gameHidden, setGameHidden] = useState(false);
-  const [username, setUsername] = useState(''); // username
-  const [password, setPassword] = useState(''); // password
   const [inputValue, setInputValue] = useState(''); // player input
   const [game, setGame] = useState([<Intro />]); // game is an array of views
   const [firstLogin, setFirstLogin] = useState(true); // used to determine if the user has logged in for the first time
@@ -38,7 +36,7 @@ export const GameProvider = ({ children }) => {
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
-    currentPuzzleIndex: 0,
+    currentPuzzleIndex: 12,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
@@ -48,19 +46,12 @@ export const GameProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState.gameStarted]);
 
-  // const returnUsername = () => {
-  //   console.log(inputValue)
-  //   return inputValue
-  // }
-
   const timeline = useMemo(
     () => [
       {
         id: 1,
         puzzle: puzzle1(
           gameState.lastInput,
-          username,
-          password,
           failSound,
           successSound,
           readyForInput,
@@ -100,7 +91,7 @@ export const GameProvider = ({ children }) => {
         ),
       },
     ],
-    [gameState, password, username]
+    [gameState]
   );
 
   const incrementPuzzle = (puzzle, puzzleIndex) => {
@@ -113,22 +104,30 @@ export const GameProvider = ({ children }) => {
     });
   };
 
-  // const checkIfUsername = () => {
-  //   if (gameState.currentExpectedInput === "username") {
-  //     const name = gameState.lastInput;
-  //     setUsername(name);
-  //     console.log(gameState.lastInput, "last input 1")
+  useEffect(() => {
+    if (gameState.currentExpectedInput === 'username') {
+      const usernameLocal = () => {
+        localStorage.setItem('CIAusername', gameState.playerInput);
+      };
+      usernameLocal();
+      setGameState({
+        ...gameState,
+        playerInput: 'username',
+      });
+    }
 
-  //     setGameState({
-  //       ...gameState,
-  //       currentExpectedInput: username,
-  //     });
-
-  //   }
-  //   console.log(gameState.lastInput, "last input 2")
-  //   console.log(gameState.currentExpectedInput, "current expected input 2")
-
-  // };
+    if (gameState.currentExpectedInput === 'password') {
+      const passwordLocal = () => {
+        localStorage.setItem('CIApassword', gameState.playerInput);
+      }
+      passwordLocal();
+      setGameState({
+        ...gameState,
+        playerInput: 'password',
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameState.playerInput]);
 
   useEffect(() => {
     const successResponse = () =>
@@ -197,6 +196,8 @@ export const GameProvider = ({ children }) => {
     if (
       gameState.gameStarted &&
       gameState.playerInput !== gameState.currentExpectedInput &&
+      gameState.currentExpectedInput !== 'username' &&
+      gameState.currentExpectedInput !== 'password' &&
       gameState.lastInput.toLowerCase() !== 'music' &&
       gameState.playerInput.toLowerCase() !== 'login' &&
       gameState.playerInput.toLowerCase() !== 'hint'
@@ -274,7 +275,7 @@ export const GameProvider = ({ children }) => {
         inputValue,
         setInputValue,
         gameHidden,
-        startTime
+        startTime,
       }}
     >
       {children}
