@@ -32,7 +32,6 @@ export const GameProvider = ({ children }) => {
     currentExpectedInput: '',
     lastInput: '',
     playerInput: '',
-    password: '',
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
