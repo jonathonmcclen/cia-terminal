@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
 import LoadingAnimation from './LoadingAnimation';
+import { outputPrefix } from 'utils';
 import 'App.scss';
 
 function Dialog({ response }) {
-  const { gameHidden } = useContext(GameContext);
+  const { gameHidden, setInputAllowed } = useContext(GameContext);
   const [dialog, setDialog] = useState([]);
   const [rendered, setRendered] = useState([]);
 
@@ -14,6 +15,8 @@ function Dialog({ response }) {
   }, []);
 
   useEffect(() => {
+    let lineCount = 0
+    setInputAllowed(false);
     if (dialog.length > 0) {
       for (let i = 0; i < dialog.length; i++) {
         setTimeout(() => {
@@ -22,9 +25,12 @@ function Dialog({ response }) {
           } else if (dialog[i].includes('https')) {
             setRendered((prev) => [
               ...prev,
-              <a href={dialog[i]} target="_blank" rel="noreferrer" key={i}>
-                {dialog[i]}
-              </a>,
+              <span className="text-line" key={i}>
+                {outputPrefix}{' '}
+                <a href={dialog[i]} target="_blank" rel="noreferrer">
+                  {dialog[i]}
+                </a>
+              </span>,
             ]);
           } else {
             setRendered((prev) => [
@@ -35,8 +41,16 @@ function Dialog({ response }) {
             ]);
           }
         }, 1000 * i);
+        lineCount = i * 1000
       }
     }
+    if (dialog.length > 0) {
+      setTimeout(() => {
+        setInputAllowed(true);
+      }, lineCount);
+    }
+
+    // setInputAllowed(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dialog]);
 

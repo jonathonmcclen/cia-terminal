@@ -5,7 +5,6 @@ export const puzzle1 = (
   failSound,
   successSound,
   readyForInput,
-  setGlitching,
 ) => {
   return [
     {
@@ -53,12 +52,10 @@ export const puzzle1 = (
         responses: {
           successResponse: [
             () => {
-              setGlitching(true);
               failSound.play();
             },
             `${userInputPrefix} '${lastInput}'`,
             `${outputPrefix} Password Not Recognized`,
-            () => setGlitching(false),
             `${outputPrefix} FAILED`,
             spacer,
             `${outputPrefix} ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR`,
@@ -310,9 +307,9 @@ export const puzzle1 = (
             `${outputPrefix} >>>>>>>>>>>>>>>>>>>___REFERENCE#_9___>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>___CODE_TOO_LONG__LogLine#2`,
             `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_8___LogLine#4`,
             `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>____REFERENCE#_0___<<<<<<<<<<<<<<<<<<<______Too_Far_______<<<<<<<<<<<<<<<<<<<______Too_Far_______<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#3`,
-            `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERAENC#_4___<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#6`,
+            `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_4___<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#6`,
             `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_6___<<<<<<<<<<<<<<<<<<<______Too_Far_______<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#5`,
-            `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REREFERENCE#_5___<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#1`,
+            `${outputPrefix} >>>>>>>>>>>>>>>>>>>__CODE_TOO_LONG__>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>_____KEEP_GOING____>>>>>>>>>>>>>>>>>>>____REFERENCE#_5___<<<<<<<<<<<<<<<<<<<______Too_Far_______LogLine#1`,
             `${outputPrefix} LOG LINES TOO LONG TYPE REFERENCE NUMBERS THEN PRESS ENTER`,
             spacer,
             () => readyForInput.play(),
@@ -378,7 +375,7 @@ export const puzzle1 = (
             `${outputPrefix} Your C.I.A terminal is now capable of Hacking and Decrypting URLs`,
             `${outputPrefix} ENCRYPTED URLs look like this:`,
             `${outputPrefix} *** EXAMPLE ****`,
-            `${outputPrefix} https://75896-29742-69504-22231`,
+            `https://75896-29742-69504-22231`,
             `${outputPrefix} ENCRYPTED URL's MUST be DECRYPTED before pasting into browser address window.`,
             `${outputPrefix} All DECRYPTED URLs can be used in a browser to visit web pages.`,
             spacer,
