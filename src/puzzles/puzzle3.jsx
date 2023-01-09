@@ -15,6 +15,7 @@ export const puzzle3 = (
       id: 1,
       dialog: {
         expectedInput: '840253',
+        hint: '131',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -52,6 +53,7 @@ export const puzzle3 = (
       id: 2,
       dialog: {
         expectedInput: '282837',
+        hint: '132',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -88,6 +90,7 @@ export const puzzle3 = (
       id: 3,
       dialog: {
         expectedInput: '372672',
+        hint: '133',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -125,6 +128,7 @@ export const puzzle3 = (
       id: 4,
       dialog: {
         expectedInput: '774093',
+        hint: '134',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -162,6 +166,7 @@ export const puzzle3 = (
       id: 5,
       dialog: {
         expectedInput: '674931',
+        hint: '135',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -199,6 +204,7 @@ export const puzzle3 = (
       id: 6,
       dialog: {
         expectedInput: '386307',
+        hint: '136',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -236,6 +242,7 @@ export const puzzle3 = (
       id: 7,
       dialog: {
         expectedInput: '371338',
+        hint: '137',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -273,6 +280,7 @@ export const puzzle3 = (
       id: 8,
       dialog: {
         expectedInput: '429578',
+        hint: '138',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -310,6 +318,7 @@ export const puzzle3 = (
       id: 9,
       dialog: {
         expectedInput: '724985',
+        hint: '139',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -347,6 +356,7 @@ export const puzzle3 = (
       id: 10,
       dialog: {
         expectedInput: '860743',
+        hint: '140',
         responses: {
           successResponse: [
             () => gameState.currentMusic.pause(),
