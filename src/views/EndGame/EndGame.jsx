@@ -3,18 +3,26 @@ import { GameContext } from 'contexts/GameContext';
 import { alabasterMusic, failSound } from 'sounds/sounds';
 import { jumblyLines, rollCredits } from './endGameData';
 import Alabaster from 'components/Banners/Alabaster';
+import LoadingAnimation from 'components/LoadingAnimation';
 import { determineTime } from 'utils';
 import 'App.scss';
 const alabasterBG =
   'https://esc-room-games.s3.us-west-1.amazonaws.com/Daffodil362/Assets/Grid%202.jpg';
 
-
 const EndGame = () => {
-  const { gameState, setGameState, startTime } = useContext(GameContext);
+  const { gameState, setGameState, startTime, setGlitching } =
+    useContext(GameContext);
   const [entered, setEntered] = useState(false);
   const [jumbles, setJumbles] = useState([]);
   const [credits, setCredits] = useState([]);
-  const [creditsGlitch, setCreditsGlitch] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setGlitching(false);
+    }, 500);
+    document.getElementById('end-game').focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const jumble = setTimeout(() => {
@@ -37,14 +45,19 @@ const EndGame = () => {
   useEffect(() => {
     if (credits.length === rollCredits.length) return;
     if (entered) {
+      if (rollCredits[credits.length] === 'loading') {
+        setCredits((credits) => [
+          ...credits,
+          <React.Fragment key={rollCredits[credits.length]}>
+            <LoadingAnimation color={'blue'} />
+          </React.Fragment>,
+        ]);
+      }
       if (rollCredits[credits.length] === 'GAMEPLAY TIME') {
         setCredits((credits) => [
           ...credits,
           <React.Fragment key={rollCredits[credits.length]}>
-            <div
-              className="blue-text-line"
-              aria-label="play-time"
-            >
+            <div className="blue-text-line" aria-label="play-time">
               Your time: {determineTime(startTime)} Minutes
             </div>
             <br />
@@ -54,43 +67,31 @@ const EndGame = () => {
         setCredits((credits) => [
           ...credits,
           <React.Fragment key={rollCredits[credits.length]}>
-            <div
-              className="blue-text-line"
-              aria-label="credits"
-            >
+            <div className="blue-text-line" aria-label="credits">
               {localStorage.getItem('CIAusername')}
             </div>
             <br />
           </React.Fragment>,
         ]);
+      } else {
+        const credit = setTimeout(() => {
+          setCredits((credits) => [
+            ...credits,
+            <React.Fragment key={rollCredits[credits.length]}>
+              <div
+                className="blue-text-line"
+                aria-label={rollCredits[credits.length]}
+              >
+                {rollCredits[credits.length]}
+              </div>
+              <br />
+            </React.Fragment>,
+          ]);
+        }, 1000);
+        return () => clearTimeout(credit);
       }
-      else {
-      const credit = setTimeout(() => {
-        setCredits((credits) => [
-          ...credits,
-          <React.Fragment key={rollCredits[credits.length]}>
-            <div
-              className="blue-text-line"
-              aria-label={rollCredits[credits.length]}
-            >
-              {rollCredits[credits.length]}
-            </div>
-            <br />
-          </React.Fragment>,
-        ]);
-      }, 1000);
-      return () => clearTimeout(credit);
-    }}
-  }, [entered, credits, startTime]);
-
-  useEffect(() => {
-    if (credits.length === rollCredits.length) {
-      const glitch = setTimeout(() => {
-        setCreditsGlitch(true);
-      }, 20000);
-      return () => clearTimeout(glitch);
     }
-  }, [entered, credits])
+  }, [entered, credits, startTime]);
 
   useEffect(() => {
     setGameState({
@@ -130,7 +131,6 @@ const EndGame = () => {
         paddingLeft: '2rem',
         textAlign: 'center',
       }}
-      className={creditsGlitch ? 'glitch' : ''}
     >
       <>
         {!entered && (
@@ -148,6 +148,7 @@ const EndGame = () => {
             }}
             tabIndex={0}
             onKeyDown={handleKeyDown}
+            id="end-game"
           >
             <div
               className="instructions"
@@ -159,12 +160,14 @@ const EndGame = () => {
                 color: 'black',
               }}
             >
-              Press ENTER to continue...
+              Call (818) 665 - 3245<br />
+              Enter code 701<br />
+              Then press ENTER on your keyboard.
             </div>
           </div>
         )}
 
-        <Alabaster className="blue-banner" />
+        <Alabaster />
         <br />
         {!entered ? (
           jumbles

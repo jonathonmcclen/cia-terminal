@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const LoadingAnimation = () => {
+const LoadingAnimation = ({color = null}) => {
   const [bars, setBars] = useState('');
   const [number, setNumber] = useState(0);
 
@@ -29,7 +29,7 @@ const LoadingAnimation = () => {
   }, [number]);
 
   return (
-    <div className="loading-animation">
+    <div className={color === 'blue' ? 'blue-loading' : 'loading-animation'}>
       {bars}
     </div>
   );

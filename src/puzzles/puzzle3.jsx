@@ -1,4 +1,5 @@
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
+import { intenseMusic } from 'sounds/sounds';
 
 export const puzzle3 = (
   lastInput,
@@ -8,7 +9,7 @@ export const puzzle3 = (
   readyForInput,
   setGameState,
   gameState,
-  setGameHidden,
+  setGameHidden
 ) => {
   return [
     {
@@ -416,6 +417,6 @@ export const puzzle3 = (
           failureResponse: [() => failSound.play()],
         },
       },
-    }
+    },
   ];
 };

@@ -7,7 +7,6 @@ import {
   readyForInput,
   successSound,
   mainMusic,
-  intenseMusic,
 } from 'sounds/sounds';
 
 import { puzzle1 } from 'puzzles/puzzle1';
@@ -34,15 +33,11 @@ export const GameProvider = ({ children }) => {
     playerInput: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 0,
-    currentPuzzleIndex: 0,
+    currentPuzzle: 2,
+    currentPuzzleIndex: 9,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
-
-  useEffect(() => {
-    console.log('inputAllowed changed to', inputAllowed);
-  }, [inputAllowed]);
 
   const decrypts = [
     'https://675849-01928-565650-57039',
@@ -314,6 +309,10 @@ export const GameProvider = ({ children }) => {
       setFirstJoke(false);
     }
 
+    if (gameState.playerInput === '860743') {
+      setGame([<Dialog response={successResponse} />]);
+    }
+
     if (gameState.playerInput.toLowerCase() === 'music') {
       setGameState({
         ...gameState,
@@ -323,13 +322,6 @@ export const GameProvider = ({ children }) => {
       gameState.musicPlaying
         ? gameState.currentMusic.pause()
         : (gameState.currentMusic.loop = true) && gameState.currentMusic.play();
-    }
-
-    if (gameState.currentPuzzle === 4) {
-      setGameState({
-        ...gameState,
-        currentMusic: intenseMusic,
-      });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -343,6 +335,7 @@ export const GameProvider = ({ children }) => {
         glitching,
         setGlitching,
         game,
+        setGame,
         inputValue,
         setInputValue,
         gameHidden,
