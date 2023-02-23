@@ -10,7 +10,7 @@ export const puzzle2 = (
       id: 1,
       dialog: {
         expectedInput: 'https://675849-01928-565650-57039',
-        hint: '112',
+        hint: '201',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -37,7 +37,7 @@ export const puzzle2 = (
       id: 2,
       dialog: {
         expectedInput: 'https://57203-23423-76039-67239',
-        hint: '113',
+        hint: '202',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -75,7 +75,7 @@ export const puzzle2 = (
       dialog: {
         expectedInput:
           'https://s3.us-west-1.amazonaws.com/15.908.75-f8065564/AlabasterTerminal/gamev2.0.html',
-        hint: '114',
+        hint: '203',
         responses: {
           successResponse: [
             `${outputPrefix} Hacking...`,
@@ -106,7 +106,7 @@ export const puzzle2 = (
       id: 4,
       dialog: {
         expectedInput: 'https://12406-13796-93659-37402',
-        hint: '115',
+        hint: '204',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -138,7 +138,7 @@ export const puzzle2 = (
       id: 5,
       dialog: {
         expectedInput: 'https://40353-36520-23634-27560',
-        hint: '116',
+        hint: '205',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -173,7 +173,7 @@ export const puzzle2 = (
       id: 6,
       dialog: {
         expectedInput: 'https://66737-26553-26594-46592',
-        hint: '117',
+        hint: '206',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -208,7 +208,7 @@ export const puzzle2 = (
       id: 7,
       dialog: {
         expectedInput: 'https://20693-10782-40621-12479',
-        hint: '118',
+        hint: '207',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -242,7 +242,7 @@ export const puzzle2 = (
       id: 8,
       dialog: {
         expectedInput: 'https://twitter.com/Anonymo00841943',
-        hint: '119',
+        hint: '208',
         responses: {
           successResponse: [
             `${outputPrefix} Hacking...`,
@@ -286,7 +286,7 @@ export const puzzle2 = (
       id: 9,
       dialog: {
         expectedInput: 'https://17928-05613-01573-57099',
-        hint: '120',
+        hint: '209',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -318,7 +318,7 @@ export const puzzle2 = (
       id: 10,
       dialog: {
         expectedInput: 'https://08958-08678-00000-67409',
-        hint: '121',
+        hint: '210',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -350,7 +350,7 @@ export const puzzle2 = (
       id: 11,
       dialog: {
         expectedInput: 'https://30304-28387-90909-14241',
-        hint: '122',
+        hint: '211',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -382,7 +382,7 @@ export const puzzle2 = (
       id: 12,
       dialog: {
         expectedInput: 'https://20239-68775-00989-83838',
-        hint: '123',
+        hint: '212',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -414,7 +414,7 @@ export const puzzle2 = (
       id: 13,
       dialog: {
         expectedInput: 'https://87665-76501-10129-30483',
-        hint: '124',
+        hint: '213',
         responses: {
           successResponse: [
             `${outputPrefix} Decrypting...`,
@@ -446,7 +446,7 @@ export const puzzle2 = (
       id: 14,
       dialog: {
         expectedInput: 'https://twitter.com/Ax787556086',
-        hint: '125',
+        hint: '214',
         responses: {
           successResponse: [
             `${outputPrefix} Hacking...`,

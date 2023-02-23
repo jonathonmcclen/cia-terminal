@@ -75,7 +75,7 @@ export const puzzle1 = (
       id: 4,
       dialog: {
         expectedInput: '601287',
-        hint: '102',
+        hint: '101',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -102,7 +102,7 @@ export const puzzle1 = (
       id: 5,
       dialog: {
         expectedInput: '842431',
-        hint: '103',
+        hint: '102',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -135,7 +135,7 @@ export const puzzle1 = (
       id: 6,
       dialog: {
         expectedInput: '976142',
-        hint: '104',
+        hint: '103',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -167,7 +167,7 @@ export const puzzle1 = (
       id: 7,
       dialog: {
         expectedInput: '452863',
-        hint: '105',
+        hint: '104',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -199,7 +199,7 @@ export const puzzle1 = (
       id: 8,
       dialog: {
         expectedInput: '203896',
-        hint: '106',
+        hint: '105',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -231,7 +231,7 @@ export const puzzle1 = (
       id: 9,
       dialog: {
         expectedInput: '018649',
-        hint: '107',
+        hint: '106',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -263,7 +263,7 @@ export const puzzle1 = (
       id: 10,
       dialog: {
         expectedInput: '502836',
-        hint: '108',
+        hint: '107',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -295,7 +295,7 @@ export const puzzle1 = (
       id: 11,
       dialog: {
         expectedInput: '163955',
-        hint: '109',
+        hint: '108',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -327,7 +327,7 @@ export const puzzle1 = (
       id: 12,
       dialog: {
         expectedInput: '590864',
-        hint: '110',
+        hint: '109',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
@@ -363,7 +363,7 @@ export const puzzle1 = (
       id: 13,
       dialog: {
         expectedInput: '483327',
-        hint: '111',
+        hint: '110',
         responses: {
           successResponse: [
             `${userInputPrefix} '${lastInput}'`,
