@@ -25,3 +25,7 @@ export const successSound = new Audio(
 export const failSound = new Audio(
   'https://cia-9d562a98.s3.us-west-1.amazonaws.com/GameAssets/SoundFX/Daffodil362Failure.wav'
 );
+
+export const finalVoiceover = new Audio(
+  'https://cia-9d562a98.s3.us-west-1.amazonaws.com/GameAssets/PhoneCalls/Mp3/Final.mp3'
+);
