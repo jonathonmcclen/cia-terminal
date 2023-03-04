@@ -33,8 +33,8 @@ export const GameProvider = ({ children }) => {
     playerInput: '',
     gameStarted: false,
     gameEnded: false,
-    currentPuzzle: 2,
-    currentPuzzleIndex: 9,
+    currentPuzzle: 1,
+    currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
@@ -80,18 +80,12 @@ export const GameProvider = ({ children }) => {
       },
       {
         id: 2,
-        puzzle: puzzle2(
-          gameState.playerInput,
-          setGlitching,
-          failSound,
-          successSound,
-          readyForInput
-        ),
+        puzzle: puzzle2(gameState.lastInput, setGlitching),
       },
       {
         id: 3,
         puzzle: puzzle3(
-          gameState.playerInput,
+          gameState.lastInput,
           setGlitching,
           failSound,
           successSound,

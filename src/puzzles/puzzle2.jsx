@@ -1,10 +1,7 @@
 import { outputPrefix, spacer } from 'utils';
 import { failSound, successSound, readyForInput } from 'sounds/sounds';
 
-export const puzzle2 = (
-  lastInput,
-  setGlitching,
-) => {
+export const puzzle2 = (lastInput, setGlitching) => {
   return [
     {
       id: 1,
@@ -40,11 +37,11 @@ export const puzzle2 = (
         hint: '202',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Decrypting...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
             `${outputPrefix} Decrypted URL:`,
             'https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government',
             `${outputPrefix} Decrypted URLs can be pasted into your browser.`,
@@ -78,11 +75,11 @@ export const puzzle2 = (
         hint: '203',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Hacking...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
             `${outputPrefix} Authentication Code: 3512076170`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
@@ -109,11 +106,11 @@ export const puzzle2 = (
         hint: '204',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Decrypting...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
             `${outputPrefix} SERVER IP: 19.087.125`,
             `${outputPrefix} Authentication Code: 3259241426`,
             spacer,
@@ -141,11 +138,11 @@ export const puzzle2 = (
         hint: '205',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Decrypting...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
             `${outputPrefix} SERVER IP: 82.607.459`,
             `${outputPrefix} Authentication Code: That would be too easy :)`,
             `${outputPrefix} DECRYPTED URL:`,
@@ -176,13 +173,13 @@ export const puzzle2 = (
         hint: '206',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Decrypting...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
             `${outputPrefix} SERVER IP: 62.746.271`,
-            `${outputPrefix} Authentication Code: 651697597`,
+            `${outputPrefix} Passcode: 651697597`,
             `${outputPrefix} DECRYPTED URL:`,
             'https://escroomgames.com/Games/Daffodil362/Puzzles/ScreenSizetoosmall',
             `${outputPrefix} Decrypted URLs can be pasted into your browser.`,
@@ -211,15 +208,15 @@ export const puzzle2 = (
         hint: '207',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Decrypting...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
             `${outputPrefix} DECRYPTED URL:`,
             'https://twitter.com/Anonymo00841943',
-            `${outputPrefix} This URL is hackable,`,
             `${outputPrefix} DECRYPTED URL's can be pasted into your browser`,
+            `${outputPrefix} This URL is hackable`,
             spacer,
             `${outputPrefix} ENTER URL TO HACK OR DECRYPT:`,
             spacer,
@@ -245,11 +242,11 @@ export const puzzle2 = (
         hint: '208',
         responses: {
           successResponse: [
+            spacer,
             `${outputPrefix} Hacking...`,
             'loading',
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
-            spacer,
 
             `${outputPrefix} Message1> One blue ball bounces.`,
             `${outputPrefix} Message2> The red desk has four legs.`,

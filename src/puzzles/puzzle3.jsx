@@ -1,5 +1,4 @@
 import { userInputPrefix, outputPrefix, spacer } from 'utils';
-import { intenseMusic } from 'sounds/sounds';
 
 export const puzzle3 = (
   lastInput,

@@ -5,7 +5,7 @@ import { outputPrefix } from 'utils';
 import 'App.scss';
 
 function Dialog({ response }) {
-  const { gameHidden, setInputAllowed, setGame, game } = useContext(GameContext);
+  const { gameHidden, setInputAllowed } = useContext(GameContext);
   const [dialog, setDialog] = useState([]);
   const [rendered, setRendered] = useState([]);
 
@@ -51,7 +51,6 @@ function Dialog({ response }) {
       }, lineCount);
     }
 
-    // setInputAllowed(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dialog]);
 
