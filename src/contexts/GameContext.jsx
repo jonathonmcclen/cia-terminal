@@ -42,7 +42,7 @@ export const GameProvider = ({ children }) => {
   const decrypts = [
     'https://675849-01928-565650-57039',
     'https://57203-23423-76039-67239',
-    'https://s3.us-west-1.amazonaws.com/15.908.75-f8065564/AlabasterTerminal/gamev2.0.html', //alabaster domain
+    'https://a123alibaster990.herokuapp.com/', //alabaster domain
     'https://12406-13796-93659-37402',
     'https://40353-36520-23634-27560',
     'https://66737-26553-26594-46592',
@@ -272,10 +272,9 @@ export const GameProvider = ({ children }) => {
         ...game,
         <Dialog
           response={[
-            `Your hint code is ${
-              timeline[gameState.currentPuzzle].puzzle[
-                gameState.currentPuzzleIndex
-              ].dialog.hint
+            `Your hint code is ${timeline[gameState.currentPuzzle].puzzle[
+              gameState.currentPuzzleIndex
+            ].dialog.hint
             }`,
           ]}
         />,

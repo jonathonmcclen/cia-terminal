@@ -43,7 +43,7 @@ export const puzzle2 = (lastInput, setGlitching) => {
             () => successSound.play(),
             `${outputPrefix} COMPLETE`,
             `${outputPrefix} Decrypted URL:`,
-            'https://cia-9d562a98.s3.us-west-1.amazonaws.com/Destruction_At_The_Hands_Of_Your_Government',
+            'https://a123alibaster990.herokuapp.com/',
             `${outputPrefix} Decrypted URLs can be pasted into your browser.`,
             `${outputPrefix} You can also click on the link above to open the decrypted URL.`,
             `${outputPrefix} Some Decrypted URLs can be Hacked.
