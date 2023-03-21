@@ -34,7 +34,7 @@ export const GameProvider = ({ children }) => {
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
-    currentPuzzleIndex: 0,
+    currentPuzzleIndex: 12,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
@@ -211,31 +211,41 @@ export const GameProvider = ({ children }) => {
 
     if (decrypts.includes(gameState.playerInput)) {
       const thisPuzzle = checkForDecrypt();
-      const success = () =>
-        thisPuzzle[0].dialog.responses.successResponse.map((resp, i) => {
-          if (typeof resp === 'string') return resp;
-          setTimeout(() => {
-            if (typeof resp === 'function') resp();
-            if (typeof resp === 'object') return resp;
-          }, 1000 * i);
-          return null;
-        });
-      if (success) {
-        setGame([...game, <Dialog response={success()} />]);
+      const success = () => {
+        if (thisPuzzle && thisPuzzle[0] && thisPuzzle[0].dialog && thisPuzzle[0].dialog.responses && thisPuzzle[0].dialog.responses.successResponse) {
+          return thisPuzzle[0].dialog.responses.successResponse.map((resp, i) => {
+            if (typeof resp === 'string') return resp;
+            setTimeout(() => {
+              if (typeof resp === 'function') resp();
+              if (typeof resp === 'object') return resp;
+            }, 1000 * i);
+            return null;
+          });
+        }
+        return null;
+      };
+      const successResponse = success();
+      if (successResponse) {
+        setGame([...game, <Dialog response={successResponse} />]);
       }
     } else if (gameState.playerInput === finalDecrypt) {
       const thisPuzzle = checkForDecrypt();
-      const success = () =>
-        thisPuzzle[0].dialog.responses.successResponse.map((resp, i) => {
-          if (typeof resp === 'string') return resp;
-          setTimeout(() => {
-            if (typeof resp === 'function') resp();
-            if (typeof resp === 'object') return resp;
-          }, 1000 * i);
-          return null;
-        });
-      if (success) {
-        setGame([...game, <Dialog response={success()} />]);
+      const success = () => {
+        if (thisPuzzle && thisPuzzle[0] && thisPuzzle[0].dialog && thisPuzzle[0].dialog.responses && thisPuzzle[0].dialog.responses.successResponse) {
+          return thisPuzzle[0].dialog.responses.successResponse.map((resp, i) => {
+            if (typeof resp === 'string') return resp;
+            setTimeout(() => {
+              if (typeof resp === 'function') resp();
+              if (typeof resp === 'object') return resp;
+            }, 1000 * i);
+            return null;
+          });
+        }
+        return null;
+      };
+      const successResponse = success();
+      if (successResponse) {
+        setGame([...game, <Dialog response={successResponse} />]);
       }
       nextPuzzle();
     } else if (
