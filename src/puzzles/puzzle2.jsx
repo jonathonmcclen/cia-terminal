@@ -71,7 +71,7 @@ export const puzzle2 = (lastInput, setGlitching) => {
       id: 3,
       dialog: {
         expectedInput:
-          'https://s3.us-west-1.amazonaws.com/15.908.75-f8065564/AlabasterTerminal/gamev2.0.html',
+          'https://a123alibaster990.herokuapp.com/',
         hint: '203',
         responses: {
           successResponse: [
