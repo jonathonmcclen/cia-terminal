@@ -26,6 +26,7 @@ export const GameProvider = ({ children }) => {
   const [firstJoke, setFirstJoke] = useState(true); // used to determine if the user has heard the first joke
   const [glitching, setGlitching] = useState(false); // used to determine if the screen is glitching
   const [startTime, setStartTime] = useState(0); // used to determine the start time of the game
+  const [nonlinearHint, setNonlinearHint] = useState("201"); // used to determine the index of the hint
   const [gameState, setGameState] = useState({
     // used to store the state of the game
     currentExpectedInput: '',
@@ -34,10 +35,15 @@ export const GameProvider = ({ children }) => {
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
-    currentPuzzleIndex: 12,
+    currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
+
+  useEffect(() => {
+    console.log('nonlinearHint', nonlinearHint)
+    // console.log(hintIndex, timeline[hintIndex[0]].puzzle[hintIndex[1]].dialog.hint)
+  }, [nonlinearHint])
 
   const decrypts = [
     'https://675849-01928-565650-57039',
@@ -227,6 +233,7 @@ export const GameProvider = ({ children }) => {
       const successResponse = success();
       if (successResponse) {
         setGame([...game, <Dialog response={successResponse} />]);
+        setNonlinearHint(thisPuzzle[0].dialog.hint)
       }
     } else if (gameState.playerInput === finalDecrypt) {
       const thisPuzzle = checkForDecrypt();
@@ -278,14 +285,19 @@ export const GameProvider = ({ children }) => {
     }
 
     if (gameState.playerInput.toLowerCase() === 'hint') {
+      let hintResponse = '';
+
+      if (gameState.currentPuzzle === 1) {
+        hintResponse = nonlinearHint;
+      } else {
+        hintResponse = timeline[gameState.currentPuzzle].puzzle[gameState.currentPuzzleIndex].dialog.hint;
+      }
+
       setGame([
         ...game,
         <Dialog
           response={[
-            `Your hint code is ${timeline[gameState.currentPuzzle].puzzle[
-              gameState.currentPuzzleIndex
-            ].dialog.hint
-            }`,
+            `Your hint code is ${hintResponse}`,
           ]}
         />,
       ]);
