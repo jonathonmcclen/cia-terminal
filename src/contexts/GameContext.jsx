@@ -35,7 +35,7 @@ export const GameProvider = ({ children }) => {
     gameStarted: false,
     gameEnded: false,
     currentPuzzle: 0,
-    currentPuzzleIndex: 12,
+    currentPuzzleIndex: 0,
     musicPlaying: false,
     currentMusic: mainMusic,
   });
